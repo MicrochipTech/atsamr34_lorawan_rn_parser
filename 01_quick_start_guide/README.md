@@ -107,9 +107,11 @@ sys sleep standby 60000
 sleep_ok 59991 ms
 
 ```
+
 <p align="center">
 <img src="resources/media/sys_sleep_standby_wlr089u0.png" width=720>
 </p>
+
 
 <a href="#top">Back to top</a>
 

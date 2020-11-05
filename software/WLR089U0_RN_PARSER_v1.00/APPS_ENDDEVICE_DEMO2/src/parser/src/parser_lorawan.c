@@ -711,7 +711,7 @@ void Parser_LoraSetSubBandStatus (parserCmdInfo_t* pParserCmdInfo)
                status = LORAWAN_SetAttr(CH_PARAM_STATUS, &ch_params);
            
            /*
-            * The return status is not verified since we presume that at the call time the channel id si correct
+            * The return status is not verified since we presume that at the call time the channel id is correct
             */
     }
      
@@ -830,17 +830,20 @@ void Parser_LoraGetDatarateRange (parserCmdInfo_t* pParserCmdInfo)
     }
 }
 
+#include "radio_interface.h"
+
 void Parser_LoraSetTxPower (parserCmdInfo_t* pParserCmdInfo)
 {
     StackRetStatus_t status = LORAWAN_INVALID_PARAMETER;
-    uint8_t txPowerIdx;
-    uint8_t ismBand;
-    
-    LORAWAN_GetAttr(ISMBAND, NULL, &ismBand);
+	uint8_t txPower ;
 
-    if((Validate_Uint8DecAsciiValue(pParserCmdInfo->pParam1, &txPowerIdx)))
+	/*uint8_t PaBoost ;
+	RADIO_GetAttr(PABOOST, &PaBoost) ;
+	printf("PA BOOST STATUS: %d\r\n", PaBoost) ;*/
+	
+    if((Validate_Uint8DecAsciiValue(pParserCmdInfo->pParam1, &txPower)))
     {
-        status = LORAWAN_SetAttr(TX_POWER,&txPowerIdx);
+        status = LORAWAN_SetAttr(TX_POWER, &txPower);
     }
 
     pParserCmdInfo->pReplyCmd = (char*)gapParserLorawanStatus[status];
@@ -923,7 +926,11 @@ void Parser_LoraSetLbt (parserCmdInfo_t* pParserCmdInfo)
 	StackRetStatus_t status = LORAWAN_INVALID_PARAMETER;
 	LorawanLBTParams_t lorawanLBTParams;
 	lorawanLBTParams.lbtScanPeriod = atoi(pParserCmdInfo->pParam1);
-	lorawanLBTParams.lbtThreshold = atoi(pParserCmdInfo->pParam2);
+	
+	//lorawanLBTParams.lbtThreshold = atoi(pParserCmdInfo->pParam2);
+	char * pEnd;
+	lorawanLBTParams.lbtThreshold = strtoul(pParserCmdInfo->pParam2, &pEnd, 10) ;
+	
 	lorawanLBTParams.maxRetryChannels = atoi(pParserCmdInfo->pParam3);
 	lorawanLBTParams.lbtNumOfSamples = atoi(pParserCmdInfo->pParam4);
 	lorawanLBTParams.lbtTransmitOn = atoi(pParserCmdInfo->pParam5);

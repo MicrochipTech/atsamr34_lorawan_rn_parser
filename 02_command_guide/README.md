@@ -161,7 +161,7 @@ Example: `mac reset 868` // Sets the default values and selects the 868 default 
 
 > This command will set default values for most of the LoRaWAN parameters. Everything set prior to this command will lose its set value.
 
-> This command must be issued at the very beginning in order to initialize internally the Microchip LoRaWAN Stack.
+> This command MUST be the FIRST command issued in order to initialize the Microchip LoRaWAN Stack accordingly with the selected region.
 
 ### `mac tx <type> <portno> <data>`
 
@@ -285,6 +285,7 @@ Example: `mac resume` // Resumes the Microchip LoRaWAN stack functionality
 
 | Parameter | Description |
 | --------- | ----------- |
+| adr | Sets the adaptive data rate |
 | appkey | Sets the application key |
 | ar | Sets the state of the automatic reply |
 | appskey | Sets the application session key |
@@ -295,7 +296,9 @@ Example: `mac resume` // Resumes the Microchip LoRaWAN stack functionality
 | dnctr | Sets the value of the downlink frame counter that will be used for the next downlink reception |
 | dr | Sets the data rate to be used for the next transmissions |
 | edclass | Sets the LoRaWAN operating class |
+| joinbackoffenable | Sets Join backoff support |
 | joineui | Sets the join/application EUI key |
+| lbt | Sets the Listen-Before-Talk (LBT) parameters |
 | linkchk | Sets the time interval for the link check process to be triggered |
 | mcastenable | Sets the Multicast state to on, or off |
 | mcastappskey | Sets the multicast application session key |
@@ -304,12 +307,24 @@ Example: `mac resume` // Resumes the Microchip LoRaWAN stack functionality
 | mcastnwkskey | Sets the multicast network session key |
 | nwkskey | Sets the network session key |
 | pwridx | Sets the output power to be used on the next transmissions |
-| retx | Sets the number of retransmissions to be used for an uplink confirmed
-packet |
+| reps | Sets the number of repetition for the unconfirmed uplink message |
+| retx | Sets the number of retransmissions to be used for an uplink confirmed packet |
 | rx2 | Sets the data rate and frequency used for the second Receive window |
 | rxdelay1 | Sets the value used for the first Receive window delay |
+| subband | Sets the status of the frequency subbands |
 | sync | Sets the synchronization word for the LoRaWAN communication |
 | upctr | Sets the value of the uplink frame counter that will be used for the next uplink transmission |
+
+#### `mac set adr <status>`
+
+`<state>`: string value representing the state, either `on` or `off`
+
+Response: `ok` if state is valid
+Response: `invalid_param` if state is not valid
+
+This command configures the Adaptive Data Rate (ADR). LoRa network allows the end-devices to individually use any of the possible data rates, this is referred to as Adaptive Data Rate (ADR). If the ADR is set, the network will control the data rate of the end-device through the appropriate MAC commands. If the ADR is not set, the network will not attempt to control the data rate of the end-device regardless of the received signal quality.
+
+Example: `mac set adr on` // Enable ADR
 
 #### `mac set appkey <appKey>`
 
@@ -335,7 +350,7 @@ Example: `mac set appskey AFBECD56473829100192837465FAEBDC`
 
 #### `mac set ar <state>`
 
-`<state>`: string value representing the state, either `on` or `off`.
+`<state>`: string value representing the state, either `on` or `off`
 
 Response: `ok` if state is valid
 Response: `invalid_param` if state is not valid
@@ -358,7 +373,7 @@ This command sets the battery level required for Device Status Answer frame in u
 
 Example: `mac set bat 127` // Battery is set to ~50%
 
-### `mac set ch freq <channelID> <frequency>`
+#### `mac set ch freq <channelID> <frequency>`
 
 `<channelID>`: decimal number representing the channel number. (e.g. range from 3 to 15 for EU)\
 `<frequency>`: decimal number representing the frequency in Hz.
@@ -372,21 +387,7 @@ Example: `mac set ch freq 13 864000000` // Define frequency for channel 13 to be
 
 > Check out the file `lorawan_multiband.h` for regional parameters details related to the frequency band to operate.
 
-### `mac set ch dcycle <channelID> <dutyCycle>`
-
-`<channelID>`: decimal number representing the channel number (e.g. range from 0 to 15 for EU)\
-`<dutyCycle>`: decimal number representing the duty cycle, from 0 to 65535
-
-Response: `ok` if parameters are valid\
-Response: `invalid_param` if parameters are not valid
-
-This command sets the duty cycle used on the given channel ID on the device. The `<dutyCycle>` value that needs to be configured can be obtained from the actual duty cycle X (in percentage) using the following formula: `<dutyCycle>` = (100/X) – 1. For EU region, the default settings consider only the three default channels (0-2), and their default duty cycle is 0.33%. If a new channel is created either by the server or by the user, all the channels (including the default ones) must be updated by the user in terms of duty cycle to comply with the ETSI regulations.
-
-Example: `mac set ch dcycle 13 9` // Defines duty cycle for channel 13 to be 10%. Since (100/10) – 1 = 9, the parameter that gets configured is 9.
-
-> Check out the file `lorawan_multiband.h` for regional parameters details related to the frequency band to operate.
-
-### `mac set ch drrange <channelID> <minRange> <maxRange>`
+#### `mac set ch drrange <channelID> <minRange> <maxRange>`
 
 `<channelID>`: decimal number representing the channel\
 `<minRange>`: decimal number representing the minimum data rate\
@@ -399,7 +400,7 @@ Example: `mac set ch drrange 13 0 2` // Using EU863-870 band: on channel 13 the 
 
 > Check out the files `lorawan_multiband.h` and `conf_regparams.h` for regional parameters details related to the frequency band to operate.
 
-### `mac set ch status <channelID> <status>`
+#### `mac set ch status <channelID> <status>`
 
 `<channelID>`: decimal number representing the channel\
 `<status>`: string value representing the state, either `on` or `off`
@@ -411,7 +412,18 @@ Example: `mac set ch status 4 off` // channel ID 4 is disabled from use
 
 > `<channelID>` parameters (frequency, data range, duty cycle) must be issued prior to enabling the status of that channel
 
-### `mac set devaddr <address>`
+#### `mac set cryptodevenabled <status>`
+
+`<status>`: string value representing the state, either `on` or `off`
+
+Response: `ok` if parameter is valid\
+Response: `invalid_param` if parameter is not valid
+
+This command informs the stack that crypto device is used for key storage.
+
+Example: `mac set cryptodevenabled on`
+
+#### `mac set devaddr <address>`
 
 `<address>`: 4-byte hexadecimal number representing the device address, from 00000000 to FFFFFFFF
 
@@ -423,7 +435,7 @@ directly set solely for activation by personalization devices. This parameter mu
 
 Example: `mac set devaddr ABCDEF01`
 
-### `mac set deveui <devEUI>`
+#### `mac set deveui <devEUI>`
 
 `<devEUI>`: 8-byte hexadecimal number representing the device EUI
 
@@ -436,7 +448,7 @@ provided EUI can be configured using the `mac set deveui` command.
 
 Example: `mac set deveui 0004A30B001A55ED`
 
-### `mac set dnctr <fCntDown>`
+#### `mac set dnctr <fCntDown>`
 
 `<fCntDown>`: decimal number representing the value of the downlink frame counter that will be used for the next downlink reception, from 0 to 4294967295.
 
@@ -447,11 +459,11 @@ This command sets the value of the downlink frame counter that will be used for 
 
 Example: `mac set dnctr 30`
 
-### `mac set dr <dataRate>`
+#### `mac set dr <dataRate>`
 
 `<dataRate>`: decimal number representing the data rate, but within the limits of the data rate range for the defined channels.
 
-Response: `ok` if data rate is valid
+Response: `ok` if data rate is valid\
 Response: `invalid_param` if data rate is not valid
 
 This command sets the data rate to be used for the next transmission.
@@ -460,29 +472,602 @@ Example: `mac set dr 5` // on EU863-870; SF7/125 kHz
 
 > Check out the files `lorawan_multiband.h` and `conf_regparams.h` for regional parameters details related to the frequency band to operate.
 
-### `mac set edclass <class>`
+#### `mac set edclass <class>`
 
 `<class>`: a letter representing the LoRaWAN device class, either `a` or `c`
 
-Response: `ok` if parameters are valid
-Response: `invalid_param` if parameters are not valid
+Response: `ok` if parameter is valid\
+Response: `invalid_param` if parameters is not valid
 
 This command sets the end device LoRaWAN operating class. The default end device class is Class A. When the class is configured as Class C, the end device will enter Class C continuous receive mode after the next uplink message is sent. The LoRaWAN network server must also configure this node as a Class C node. The network server configuration is performed out of band from LoRaWAN communications.
 
 Example: `mac set edclass c`
 
-### `mac set joineui <joinEUI>`
+#### `mac set joinbackoffenable <status>
+
+`<status>`: string value representing the state, either `on` or `off`
+
+Response: `ok` if parameter is valid\
+Response: `invalid_param` if parameter is not valid
+
+This command configures Join backoff support as per in Specification.
+
+Example: `mac set joinbackoffenable on`
+
+#### `mac set joineui <joinEUI>`
 
 `<joinEUI>`: 8-byte hexadecimal number representing the join/application EUI
 
-Response: `ok` if parameters are valid\
-Response: `invalid_param` if parameters are not valid
+Response: `ok` if parameter is valid\
+Response: `invalid_param` if parameter is not valid
 
 This command sets the join/application EUI.
 
 Example: `mac set joineui 0011223344556677`
 
-### `mac set linkchk <linkcheck>`
+#### `mac set lbt <scanPeriod> <threshold> <maxRetryChannels> <numOfSamples> <transmitOn>`
+
+`<scanPeriod>`: scan duration in ms of a single channel, from 0 to 0xFFFF\
+`<threshold>`: threshold which channel is assumed to be occupied, from 0 to 0xFFFF\
+`<maxRetryChannels>`: number of MAX channels to do LBT. If Set to 0xFFFF, LBT will be done till a free channel is found. If set to 0, retry will not be done, so LBT will be done once. If set to 1, retry will be done once, so LBT will be done twice. From 0 to 0xFFFF\
+`<numOfSamples>`: number of RSSI read samples for a single channel, from to 0 to 255\
+`<transmitOn>`: switch for radio to decide if the transmit request is LBT based, 1 or 0
+
+Response: `ok` if parameters are valid\
+Response: `invalid_param` if parameters are not valid
+
+This command sets the Listen-Before-Talk (LBT) parameters.
+
+Example: `mac set lbt 5 -80 5 5 1`
+
+> Only applicable for regions which support LBT like Korea or Japan
+
+#### `mac set linkchk <linkChk>`
+
+`<linkChk>`: decimal number from 0 to 65535 that sets the time interval in seconds for the link check process
+
+Response: `ok` if the time interval is valid\
+Response: `invalid_param` if the time interval is not valid
+
+This command sets the time interval for the link check process to be triggered periodically. A `<value>` of '0' will disable the link check process. When the time interval expires, the next application packet that will be sent to the server will include also a link check MAC command.
+
+Example: `mac set linkchk 600` // the device will attempt a link check process at 600-second intervals
+
+#### `mac set mcastenable <state> <groupID>`
+
+`<state>`: string value representing the state, either on or off\
+`<groupID>`: decimal number representing the group ID from 0 to 3
+
+Response: `ok` if arguments are valid\
+Response: `invalid_param` if the arguments are not valid
+
+This command sets the end device Multicast the group ID and the state to either be enabled or disabled. When multicast is enabled, and the device is operating in Class C continuous receive mode, the end device can receive multicast messages from the server.
+
+Example: `mac set mcastenable on 0`
+
+> Multicast keys must be set prior to execute this command
+
+#### `mac set mcastappskey <mcastApplicationSessionkey> <groupID>`
+
+`<mcastApplicationSessionkey>`: 16-byte hexadecimal number representing the
+application session key\
+`<groupID>`: decimal number representing the group ID from 0 to 3
+
+Response: `ok` if arguments are valid\
+Response: `invalid_param` if the arguments are not valid
+
+This command sets the multicast application session key for the module. This key identifies the multicast application session key used when the network sends a multicast message from an application.
+
+Example: `mac set mcastappskey 29100192AFBECD564738837465FAEBDC 0`
+
+#### `mac set mcastdevaddr <mcastAddress> <groupID>`
+
+`<mcastAddress>`: 4-byte hexadecimal number representing the device multicast
+ address, from 00000000 - FFFFFFFF\
+`<groupID>`: decimal number representing the group ID from 0 to 3
+
+Response: `ok` if arguments are valid\
+Response: `invalid_param` if the arguments are not valid
+
+This command configures the module with a 4-byte multicast network device address. The address MUST match the multicast address on the current network. This must be directly set for multicast devices.
+
+Example: `mac set mcastdevaddr 54ABCDEF 0`
+
+#### `mac set mcastdr <mcastDatarate> <groupID>`
+
+`<mcastDatarate>`: decimal number representing the multicast data rate (0-5)
+`<groupID>`: decimal number representing the group id from 0 to 3
+
+Response: `ok` if arguments are valid\
+Response: `invalid_param` if the arguments are not valid
+
+Example: `mac set mcastdr 5 0` // set dr 5 to group id 0
+
+#### `mac set mcastnwkskey <mcastNetworkSessionkey> <groupID>`
+
+`<mcastNetworkSessionkey>`: 16-byte hexadecimal number representing the
+network session key\
+`<groupID>`: decimal number representing the group id from 0 to 3
+
+Response: `ok` if arguments are valid
+Response: `invalid_param` if the arguments are not valid
+
+This command sets the multicast network session key for the module. This key is 16
+bytes in length, and provides security for communication between the module and multicast network server.
+
+Example: `mac set mcastnwkskey 6AFBECD1029384755647382910DACFEB 0`
+
+#### `mac set nwkskey <nwkSessKey>`
+
+`<nwkSessKey>`: 16-byte hexadecimal number representing the network session key
+
+Response: `ok` if key is valid\
+Response: `invalid_param` if key is not valid
+
+This command sets the network session key for the module. This key is 16 bytes in
+length, and provides security for communication between the module and network
+server.
+
+Example: `mac set nwkskey 1029384756AFBECD5647382910DACFEB`
+
+#### `mac set pwridx <pwrIndex>`
+
+`<pwrIndex>`: decimal number representing the index value for the output power, from 0 to 7 for EU 868 MHz, from 5 to 10 for NA 915 MHz
+
+Response: `ok` if power index is valid\
+Response: `invalid_param` if power index is not valid
+
+This command sets the output power to be used on the next transmissions.
+
+Example: `mac set pwridx 1` // Sets the TX output power to Max EIRP - 2 dB on the next transmission for a 868 MHz EU band. By default, the Max EIRP is considered to be +16dBm.\
+Example: `mac set pwridx 5` // Sets the TX output power to 20 dBm on the next transmission for a 915 MHz NA band
+
+Check out the LoRaWAN regional parameters and the End-device Output Power encoding section for more details.
+
+
+#### `mac set reps <repsNb>`
+
+`<repsNb>`: decimal number representing the number of repetition for the unconfirmed uplink messages, from 0 to 255
+
+Response: `ok` if value is valid\
+Response: `invalid_param` if value is not valid
+
+Example: `mac set reps 5`
+
+#### `mac set retx <reTxNb>`
+
+`<reTxNb>`: decimal number representing the number of retransmissions for an uplink
+confirmed packet, from 0 to 255
+
+Response: `ok` if value is valid\
+Response: `invalid_param` if value is not valid
+
+This command sets the number of retransmissions to be used for an uplink confirmed packet, if no downlink acknowledgment is received from the server.
+
+Example: `mac set retx 5` // The number of retransmissions made for an uplink confirmed packet is set to 5
+
+#### `mac set rx2 <dataRate> <frequency>`
+
+`<dataRate>`: decimal number representing the data rate, from 0 to 7 for EU, from 8 to 13 for NA915\
+`<frequency>`: decimal number representing the frequency in Hz, from 863000000 to
+870000000 Hz for EU, from 923300000 to 927500000 Hz in 600kHz steps for NA915
+
+Response: `ok` if parameters are valid\
+Response: `invalid_param` if parameters are not valid
+
+This command sets the data rate and frequency used for the second Receive window. The configuration of the Receive window parameters should be in concordance with
+the server configuration.
+
+Example: `mac set rx2 3 865000000` // Receive window 2 is configured with
+SF9/125 kHz data rate with a center frequency of 865 MHz\
+Example: `mac set rx2 8 927500000` // Receive window 2 is configured with
+SF12/500 kHz data rate with a center frequency of 927.5 MHz
+
+#### `mac set rxdelay1 <rxDelay>`
+
+`<rxDelay>`: decimal number representing the delay between the transmission and the first Reception window in milliseconds, from 0 to 65535
+
+Response: `ok` if value is valid\
+Response: `invalid_param` if value is not valid
+
+This command will set the delay between the transmission and the first Reception window to the `<rxDelay>` in milliseconds. The delay between the transmission and
+the second Reception window is calculated in software as the delay between the
+transmission and the first Reception window + 1000 (ms).
+
+Example: `mac set rxdelay1 1000` // Set the delay between the transmission and the first Receive window to 1000 ms
+
+#### `mac set subband status <subbandID> <status>`
+
+`<subbandID>`: decimal number representing the subband, from 1 to 8\
+`<status>`: string value representing the state, either `on` or `off`
+
+Response: `ok` if parameters are valid\
+Response: `invalid_param` if parameters are not valid
+
+Example: `mac set subband status 2 on` // subband 2 is enabled
+
+#### `mac set sync <synchWord>`
+
+`<synchWord>`: one byte long hexadecimal number representing the synchronization
+word for the LoRaWAN communication
+
+Response: `ok` if parameter is valid\
+Response: `invalid_param` if parameter is not valid
+
+This command sets the synchronization word for the LoRaWAN communication. The configuration of the synchronization word should be in accordance with the Gateway
+configuration.
+
+Example: `mac set sync 34` // Synchronization word is configured to use the 0x34 value
+
+#### `mac set upctr <fCntUp>`
+
+`<fCntUp>`: decimal number representing the value of the uplink frame counter that will be used for the next uplink transmission, from 0 to 4294967295 
+
+Response: `ok` if parameter is valid\
+Response: `invalid_param` if parameter is not valid
+
+This command sets the value of the uplink frame counter that will be used for the next
+uplink transmission.
+
+Example: `mac set upctr 10`
+
+### MAC Get commands
+
+| Parameter | Description |
+| --------- | ----------- |
+| adr | Gets the state of adaptive data rate for the device |
+| ar | Gets the state of the automatic reply |
+| ch | Gets parameters related information which pertains to channel operation and behaviors |
+| devaddr | Gets the current stored unique network device address for that specific end device |
+| deveui | Gets the current stored globally unique identifier for that specific end device |
+| dnctr | Gets the value of the downlink frame counter that will be used for the next downlink reception |
+| dr | Gets the data rate to be used for the next transmission |
+| dutycycletime | Gets the pending duty cycle value |
+| edclass | Gets the LoRaWAN operating class for the end device |
+| edclassupported | Gets the supported LoRaWAN class |
+| joinbackoffenable | Gets the state of Join backoff support |
+| joindutycycletime | Gets the join duty cycler emaining |
+| joineui | Gets the join/application identifier for the end device |
+| gwnb | Gets the number of gateways that successfully received the last Link Check Request frame |
+| lbt | Gets the Listen-Before-Talk (LBT) parameters |
+| mcastenable | Gets the state of multicast reception for the end device |
+| mcastdevaddr | Gets the current stored multicast network device address for the end device |
+| mcastdnctr | Gets the value of the multicast downlink frame counter that will be used for the next multilink downlink reception |
+| mrgn | Gets the demodulation margin as received in the last Link Check Answer frame |
+| pktrssi | Gets the last packet RSSI |
+| pwridx | Gets the output power |
+| reps | Gets the number of repetition for the unconfirmed uplink message |
+| retx | Gets the number of retransmissions to be used for an uplink confirmed packet |
+| rx2 | Gets the data rate and frequency used for the second Receive window |
+| rxdelay1 | Gets the value used for the first Receive window delay |
+| rxdelay2 | Gets the value used for the second Receive window delay |
+| status | Gets the current status of the stack |
+| subband | Gets the status of the frequency subbands |
+| sync | Gets the synchronization word for the LoRaWAN communication |
+| upctr | Gets the value of the uplink frame counter that will be used for the next uplink transmission |
+
+#### `mac get adr`
+
+Response: string representing the state of the adaptive data rate mechanism, either `on` or `off`
+
+This command will return the state of the adaptive data rate mechanism. It will reflect if the ADR is `on` or `off` on the requested device.
+
+Default: `off`\
+Example: `mac get adr`
+
+#### `mac get ar`
+
+Response: string representing the state of the automatic reply, either `on` or `off`
+
+This command will return the current state for the automatic reply (AR) parameter. The
+response will indicate if the AR is `on` or `off`.
+
+Default: `off`\
+Example: `mac get ar`
+
+#### `mac get ch freq <channelID>`
+
+`<channelID>`: decimal number representing the channel number. (e.g. range from 0 to 15 for EU)
+
+Response: decimal number representing the frequency of the channel, from
+863000000 to 870000000 Hz for EU, from 902300000 to 914900000 Hz for NA, depending on the frequency band selected
+
+This command returns the frequency on the requested `<channelID>`, entered in decimal form.
+
+Example: `mac get ch freq 0`
+
+#### `mac get ch drrange <channelID>`
+
+`<channelID>`: decimal number representing the channel, from 0 to 15 for EU, from 0 to 71 for NA
+
+Response: decimal number representing the minimum data rate of the channel, from 0 to 7 and a decimal number representing the maximum data rate of the channel, from 0 to 7
+
+This command returns the allowed data rate index range on the requested `<channelID>`, entered in decimal form. The <minRate> and <maxRate> index values are returned in decimal form and reflect index values. 
+
+Example: `mac get ch drrange 0`
+
+#### `mac get ch status <channelID>`
+
+`<channelID>`: decimal number representing the channel, from 0 to 15 for EU, from 0 to 71 for NA
+
+Response: string representing the state of the channel, either `on` or `off`. 
+
+This command returns if `<channelID>` is currently enabled for use. `<channelID>` is entered in decimal form and the response will be on or off reflecting the channel is enabled or disabled appropriately.
+
+Example: `mac get ch status 2`
+
+#### `mac get devaddr`
+
+Response: 4-byte hexadecimal number representing the device address, from
+00000000 to FFFFFFFF. 
+
+This command will return the current end-device address of the device.
+
+Default: `00000000`\
+Example: `mac get devaddr`
+
+#### `mac get deveui`
+
+Response: 8-byte hexadecimal number representing the device EUI. 
+
+This command returns the globally unique end-device identifier, as set in the module.
+
+Default: `0000000000000000`\
+Example: `mac get deveui`
+
+#### `mac get dnctr`
+
+Response: decimal number representing the value of the downlink frame counter that
+will be used for the next downlink reception, from 0 to 4294967295. 
+
+This command will return the value of the downlink frame counter that will be used for the next downlink reception.
+
+Default: `0`\
+Example: `mac get dnctr`
+
+#### `mac get dr`
+
+Response: decimal number representing the current data rate.
+
+This command will return the current data rate.
+
+Default: `5`\
+Example: `mac get dr`
+
+#### `mac get dutycycletime`
+
+Response: decimal number representing the time to wait in millisecond prior to issue a new transmission
+
+This command returns the pending duty cycle counter value to wait before issuing a new transmission.
+
+Example: `mac get dutycycletime`
+
+#### `mac get edclass`
+
+Response: string representing the current LoRaWAN operation class
+
+This command will return the LoRaWAN operation class as set in the device.
+
+Default: `CLASS A`\
+Example: `mac get edclass`
+
+#### `mac get edclasssupported`
+
+Response: string representing the supported LoRaWAN operation class
+
+This command will return the supported LoRaWAN operation class.
+
+Default: `A&C`\
+Example: `mac get edclasssupported`
+
+#### `mac get gwnb`
+
+Response: decimal number representing the number of gateways, from 0 to 255
+
+This command will return the number of gateways that successfully received the last
+Link Check Request frame command, as received in the last Link Check Answer.
+
+Default: `0`\
+Example: `mac get gwnb`
+
+#### `mac get joinbackoffenable`
+
+Response: string representing the state of the channel, either `on` or `off`. 
+
+This command returns the Join backoff support.
+
+Default: `on`\
+Example: `mac get joinbackoffenable`
+
+#### `mac get joindutycycletime`
+
+Response: decimal number representing the time to wait in millisecond prior to issue a new join request
+
+This command returns the pending duty cycle counter value to wait before issuing a new join request
+
+Example: `mac get joindutycycletime`
+
+#### `mac get joineui`
+
+Response: 8-byte hexadecimal number representing the join/application EUI
+
+This command will return the join/application identifier for the device. The application identifier is a value given to the device by the network.
+
+Default: `0000000000000000`\
+Example: `mac get joineui`
+
+#### `mac get mcastenable <groupID>`
+
+`<groupID>`: decimal number representing the group ID from 0 to 3
+
+Response: string representing the Multicast state of the module, either `on` or `off`
+
+This command will return the Multicast state as set in the device.
+
+Default: `off`\
+Example: `mac get mcast 0`
+
+#### `mac get mcastdevaddr <groupID>`
+
+`<groupID>`: decimal number representing the group ID from 0 to 3
+
+Response: 4-byte hexadecimal number representing the device multicast address, from 00000000 to FFFFFFFF
+
+This command will return the current multicast end-device address of the device.
+
+Default: `ffffffff`\
+Example: `mac get mcastdevaddr 0`
+
+#### `mac get mcastdnctr <groupID>`
+
+`<groupID>`: decimal number representing the group ID from 0 to 3
+
+Response: decimal number representing the value of the downlink frame counter that will be used for the next multilink downlink reception, from 0 to 4294967295
+
+This command will return the value of the downlink frame counter that will be used for
+the next downlink reception.
+
+Default: `0`\
+Example: `mac get mcastdnctr 0`
+
+#### `mac get mrgn`
+
+Response: decimal number representing the demodulation margin, from 0 to 255
+
+This command will return the demodulation margin as received in the last Link Check Answer frame.
+
+Default: `255`\
+Example: `mac get mrgn`
+
+#### `mac get pktrssi`
+
+Response: decimal number representing the RSSI of the lastest packet received
+
+This command returns the RSSI of the latest packet received.
+
+Example: `mac get pktrssi`
+
+#### `mac get pwridx`
+
+Response: decimal number representing the current output power index
+
+This command returns the current output power index according to the region selected.
+
+Default: `1` for EU868, `7` for NA915\
+Example: `mac get pwridx`
+
+#### `mac get reps`
+
+Response: decimal number representing the number of repetition for the unconfirmed uplink messages, from 0 to 255
+
+Default: `0`\
+Example: `mac get reps`
+
+#### `mac get retx`
+
+Response: decimal number representing the number of retransmissions, from 0 to 255
+
+This command will return the currently configured number of retransmissions which are
+attempted for a confirmed uplink communication when no downlink response has been received.
+
+Default: `7`\
+Example: `mac get retx`
+
+#### `mac get rx2`
+
+Response: decimal number representing the data rate configured for the second
+Receive window, from 0 to 7 and a decimal number for the frequency configured for the second Receive window
+
+This command will return the current data rate and frequency configured to be used
+during the second Receive window.
+
+Example: `mac get rx2`
+
+#### `mac get rxdelay1`
+
+Response: decimal number representing the interval, in milliseconds, for `rxdelay1`, from 0 to 65535
+
+This command will return the interval, in milliseconds, for `rxdelay1`.
+
+Default: `1000`\
+Example: `mac get rxdelay1`
+
+#### `mac get rxdelay2`
+
+Response: decimal number representing the interval, in milliseconds, for `rxdelay2`, from 0 to 65535
+
+This command will return the interval, in milliseconds, for `rxdelay2`.
+
+Default: `2000`\
+Example: `mac get rxdelay2`
+
+#### `mac get status`
+
+Response: 4-byte hexadecimal number representing the current status of the stack
+
+This command will return the current status of the stack. The value returned is a bit mask represented in hexadecimal form. 
+
+Default: `00000000`\
+Example: `mac get status`
+
+MAC STATUS BIT-MAPPED REGISTER:
+
+| Bit position | Description |
+| ------------ | ----------- |
+| 31-18 | RFU |
+| 17 | Multicast status ('0' - multicast disabled, '1' - multicast enabled) |
+| 16 | Rejoin needed ('0' - end device functional, '1' - end device not functional and rejoin is needed) |
+| 15 | RX timing setup updated ('0' - not updated, '1' - updated via RX TimingSetupReq MAC command) |
+| 14 | Second Receive window parameters updated ('0' - not updated, '1' - updated via RX ParamSetupReq MAC command) |
+| 13 | Prescaler updated ('0' - not updated, '1' - updated via DutyCycleReq MAC command) |
+| 12 | NbRep updated ('0' - not updated, '1' - updated via LinkADRReq MAC command) |
+| 11 | Output power updated ('0' - not updated, '1' - updated via LinkADRReq MAC command) |
+| 10 | Channels updated ('0' - not updated, '1' - updated via CFList or NewChannelReq MAC command) |
+| 9 | Link check status ('0' - link check is disabled, '1' - link check is enabled) |
+| 8 | Rx Done status ('0' - Rx data is not ready, '1' - Rx data is ready) |
+| 7 | Mac pause status ('0' - mac is not paused, '1' - mac is paused) |
+| 6 | Silent immediately status ('0' - disabled, '1' - enabled) |
+| 5 | ADR status ('0' - disabled, '1' - enabled) |
+| 4 | Automatic reply status ('0' - disabled, '1' - enabled) |
+| 3 - 1 | Mac state - determine the state of transmission (rx window open, between tx and rx, etc.) |
+| 0 | Join status ('0' - network not joined, '1' - network joined) |
+<br> 
+
+| Mac state value | Description |
+| --------------- | ----------- |
+| 0 | Idle (transmission are possible) |
+| 1 | Transmission occuring |
+| 2 | Before the opening of Receive window 1 |
+| 3 | Receive window 1 is open |
+| 4 | Between Receive window 1 and Receive window 2 |
+| 5 | Receive window 2 is open |
+| 6 | Retransmission delay - used for ADR_ACK delay, FSK can occur |
+| 7 | APB_delay |
+
+Example: 
+```
+mac get status
+00000421 -> [0000 0000 0000 0000 0000 0100 0010 1001]b // CF list updated, ADR enabled, network joined
+```
+
+#### `mac get sync`
+
+Response: one byte long hexadecimal number representing the synchronization word for the LoRaWAN communication.
+
+This command will return the synchronization word for the LoRaWAN communication.
+
+Default: `34`\
+Example: `mac get sync`
+
+#### `mac get upctr`
+
+Response: decimal number representing the value of the uplink frame counter that will be used for the next uplink transmission, from 0 to 4294967295
+
+This command will return the value of the uplink frame counter that will be used for the next uplink transmission.
+
+Default: `0`\
+Example: `mac get upctr`
+
 
 
 
@@ -491,16 +1076,16 @@ Example: `mac set joineui 0011223344556677`
 
 The list of known limitations are described below:
 
-1. `sys eraseFW` command is not implemented.
-1. `sys factoryRESET` has the same effect as `sys reset` command.
-1. `sys set nvm <address> <data>` command is not implemented.
-1. `sys set pindig <pinname> <pinstate>` is not implemented.
-1. `sys set pinmode <pinname> <pinmode>` is not implemented.
-1. `sys get pindig <pinname>` is not implemented.
-1. `sys get pinana <pinname>` is not implemented.
+1. `sys eraseFW` command is not implemented
+1. `sys factoryRESET` has the same effect as `sys reset` command
+1. `sys set nvm <address> <data>` command is not implemented
+1. `sys set pindig <pinname> <pinstate>` is not implemented
+1. `sys set pinmode <pinname> <pinmode>` is not implemented
+1. `sys get pindig <pinname>` is not implemented
+1. `sys get pinana <pinname>` is not implemented
 1. `mac save` command is not implemented and redundant with PDS. In SAMR34 Microchip LoRaWAN Stack, Persistent Data Server (PDS) is implemented with task posting hooks and whenever it sees a change in persistence-enabled RAM paramters, then it will automatically saves them to Non-volatile memory.
 When the device reboots or power is rebooted, after initialized the stack thru `mac reset <region>` command, it restores the persistent data from the non-volatile memory
-1. `radio` commands are not supported, check out the Radio Utility tool part of [SAM R34 Reference Design Package](https://www.microchip.com/wwwproducts/en/ATSAMR34J18) or [WLR089U0 Reference Design Package](https://www.microchip.com/wwwproducts/en/WLR089U0)
+1. `radio` commands are not supported here, check out the Radio Utility tool part of [SAM R34 Reference Design Package](https://www.microchip.com/wwwproducts/en/ATSAMR34J18) or [WLR089U0 Reference Design Package](https://www.microchip.com/wwwproducts/en/WLR089U0) to use radio commands
 
 <a href="#top">Back to top</a>
 
