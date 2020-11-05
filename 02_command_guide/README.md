@@ -1050,6 +1050,16 @@ mac get status
 00000421 -> [0000 0000 0000 0000 0000 0100 0010 1001]b // CF list updated, ADR enabled, network joined
 ```
 
+#### `mac get subband status <subbandID>`
+
+`<subbandID>`: decimal number representing the subband, from 1 to 8
+
+Response: string value representing the state, either `on` or `off`
+
+This command returns the status of a particular subband.
+
+Example: `mac get subband status 2`
+
 #### `mac get sync`
 
 Response: one byte long hexadecimal number representing the synchronization word for the LoRaWAN communication.
@@ -1067,9 +1077,6 @@ This command will return the value of the uplink frame counter that will be used
 
 Default: `0`\
 Example: `mac get upctr`
-
-
-
 
 
 ## Limitations<a name="step5"></a>
