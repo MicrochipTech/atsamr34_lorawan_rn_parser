@@ -53,6 +53,8 @@ Pressing the User button (SW0) on ATSAMR34 XPRO/WLR089 XPRO will wake up the sys
 
 Example: `sys sleep standby 60000`  // Puts the system to sleep for 60 sec
 
+> Stack must be initialized with `mac reset <band>` command prior to issue any commands.
+
 ### `sys reset`
 
 This command resets and restarts the device; stored internal configurations will be loaded automatically upon reboot.

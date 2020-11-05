@@ -99,9 +99,13 @@ mac_tx_ok
 ## Standby mode<a name="step6"></a>
 
 1. Place jumper J102 in **MEAS** position to measure MCU current
-2. Place jumper J101 in **BY-PS** position to bypass I/Os current
-3. Put the device in standby mode for 60 seconds
+1. Place jumper J101 in **BY-PS** position to bypass I/Os current
+1. Initialize the stack with `mac reset <band>` command
+1. Put the device in standby mode for 60 seconds
+
+Example:
 ```sh
+mac reset 868
 sys sleep standby 60000
 ..
 sleep_ok 59991 ms
