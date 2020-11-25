@@ -48,8 +48,9 @@ Control SAM R34 IC or WLR089U0 Module with ASCII commands over UART.
    1. [Software Setup](01_quick_start_guide/README.md#step2)
    1. [Plug-in](01_quick_start_guide/README.md#step3)
    1. [Link Up](01_quick_start_guide/README.md#step4)
-   1. [Dive-in](01_quick_start_guide/README.md#step5)
-   1. [Example](01_quick_start_guide/README.md#step5)   
+   1. [Send Data](01_quick_start_guide/README.md#step5)
+   1. [Standby mode](01_quick_start_guide/README.md#step6)
+   1. [Secure Authentication](01_quick_start_guide/README.md#step7)
 1. <font size="6">[Command User's Guide](02_command_guide/README.md#top)</font>
    1. [Command Syntax](02_command_guide/README.md#step1)
    1. [Command Organization](02_command_guide/README.md#step2)

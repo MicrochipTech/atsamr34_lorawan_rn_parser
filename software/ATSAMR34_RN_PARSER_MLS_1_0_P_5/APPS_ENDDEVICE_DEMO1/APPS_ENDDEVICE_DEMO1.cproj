@@ -1,0 +1,2158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>7.0</ProjectVersion>
+    <ToolchainName>com.Atmel.ARMGCC.C</ToolchainName>
+    <ProjectGuid>dce6c7e3-ee26-4d79-826b-08594b9ad897</ProjectGuid>
+    <avrdevice>ATSAMR34J18B</avrdevice>
+    <avrdeviceseries>samr34</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>APPS_ENDDEVICE_DEMO1</AssemblyName>
+    <Name>APPS_ENDDEVICE_DEMO1</Name>
+    <RootNamespace>APPS_ENDDEVICE_DEMO1</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <preserveEEPROM>true</preserveEEPROM>
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <ResetRule>0</ResetRule>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <EraseKey />
+    <AsfFrameworkConfig>
+      <framework-data>
+        <options>
+          <option id="common.boards" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="common.utils" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="sam0.drivers.port" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="sam0.utils.cmsis.samr34.source.template" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="thirdparty.wireless.lorawan.apps.enddevice_certification_src" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="thirdparty.wireless.lorawan.apps.enddevice_demo_module" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="thirdparty.wireless.lorawan.services.edbg_eui" value="Add" config="" content-id="Atmel.ASF" />
+        </options>
+        <configurations>
+          <configuration key="config.sam0.drivers.sercom.usart" value="callback" default="callback" content-id="Atmel.ASF" />
+          <configuration key="config.compiler.armgcc.optimization" value="size" default="size" content-id="Atmel.ASF" />
+          <configuration key="config.sam0.drivers.aes" value="polled" default="polled" content-id="Atmel.ASF" />
+          <configuration key="config.thirdparty.wireless.lorawan.sal" value="ecc608" default="ecc608" content-id="Atmel.ASF" />
+          <configuration key="config.sam0.drivers.rtc" value="count_callback" default="count_callback" content-id="Atmel.ASF" />
+          <configuration key="config.sam0.drivers.sercom.i2c.master" value="callback" default="callback" content-id="Atmel.ASF" />
+          <configuration key="config.sam0.drivers.sercom.spi" value="polled" default="polled" content-id="Atmel.ASF" />
+          <configuration key="config.thirdparty.wireless.lorawan.reg.band" value="multi_band" default="multi_band" content-id="Atmel.ASF" />
+        </configurations>
+        <files>
+          <file path="src/ASF/common2/services/delay/delay.h" framework="" version="" source="common2/services/delay/delay.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common2/services/delay/sam0/systick_counter.c" framework="" version="" source="common2/services/delay/sam0/systick_counter.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common2/services/delay/sam0/systick_counter.h" framework="" version="" source="common2/services/delay/sam0/systick_counter.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/boards/board.h" framework="" version="" source="common/boards/board.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/serial/sam0_usart/usart_serial.h" framework="" version="" source="common/services/serial/sam0_usart/usart_serial.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/services/serial/serial.h" framework="" version="" source="common/services/serial/serial.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/utils/interrupt.h" framework="" version="" source="common/utils/interrupt.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/utils/interrupt/interrupt_sam_nvic.c" framework="" version="" source="common/utils/interrupt/interrupt_sam_nvic.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/utils/interrupt/interrupt_sam_nvic.h" framework="" version="" source="common/utils/interrupt/interrupt_sam_nvic.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/utils/parts.h" framework="" version="" source="common/utils/parts.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/boards/samr34_xplained_pro/board_init.c" framework="" version="" source="sam0/boards/samr34_xplained_pro/board_init.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/boards/samr34_xplained_pro/samr34_xplained_pro.h" framework="" version="" source="sam0/boards/samr34_xplained_pro/samr34_xplained_pro.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/adc/adc.h" framework="" version="" source="sam0/drivers/adc/adc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/adc/adc_callback.h" framework="" version="" source="sam0/drivers/adc/adc_callback.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/adc/adc_sam_l_c/adc.c" framework="" version="" source="sam0/drivers/adc/adc_sam_l_c/adc.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/adc/adc_sam_l_c/adc_callback.c" framework="" version="" source="sam0/drivers/adc/adc_sam_l_c/adc_callback.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/adc/adc_sam_l_c/adc_feature.h" framework="" version="" source="sam0/drivers/adc/adc_sam_l_c/adc_feature.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/aes/aes.c" framework="" version="" source="sam0/drivers/aes/aes.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/aes/aes.h" framework="" version="" source="sam0/drivers/aes/aes.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/extint/extint.h" framework="" version="" source="sam0/drivers/extint/extint.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/extint/extint_callback.c" framework="" version="" source="sam0/drivers/extint/extint_callback.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/extint/extint_callback.h" framework="" version="" source="sam0/drivers/extint/extint_callback.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/extint/extint_sam_l_c/extint.c" framework="" version="" source="sam0/drivers/extint/extint_sam_l_c/extint.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/nvm/nvm.c" framework="" version="" source="sam0/drivers/nvm/nvm.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/nvm/nvm.h" framework="" version="" source="sam0/drivers/nvm/nvm.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/nvm/quick_start_basic/qs_nvm_basic.h" framework="" version="" source="sam0/drivers/nvm/quick_start_basic/qs_nvm_basic.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/port/port.c" framework="" version="" source="sam0/drivers/port/port.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/port/port.h" framework="" version="" source="sam0/drivers/port/port.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/port/quick_start/qs_port_basic.h" framework="" version="" source="sam0/drivers/port/quick_start/qs_port_basic.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/rtc/rtc_count.h" framework="" version="" source="sam0/drivers/rtc/rtc_count.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/rtc/rtc_count_interrupt.h" framework="" version="" source="sam0/drivers/rtc/rtc_count_interrupt.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/rtc/rtc_sam_l_c/rtc_count.c" framework="" version="" source="sam0/drivers/rtc/rtc_sam_l_c/rtc_count.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/rtc/rtc_sam_l_c/rtc_count_interrupt.c" framework="" version="" source="sam0/drivers/rtc/rtc_sam_l_c/rtc_count_interrupt.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/rtc/rtc_tamper.h" framework="" version="" source="sam0/drivers/rtc/rtc_tamper.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/i2c/i2c_common.h" framework="" version="" source="sam0/drivers/sercom/i2c/i2c_common.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/i2c/i2c_master.h" framework="" version="" source="sam0/drivers/sercom/i2c/i2c_master.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/i2c/i2c_master_interrupt.h" framework="" version="" source="sam0/drivers/sercom/i2c/i2c_master_interrupt.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/i2c/i2c_sam0/i2c_master.c" framework="" version="" source="sam0/drivers/sercom/i2c/i2c_sam0/i2c_master.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/i2c/i2c_sam0/i2c_master_interrupt.c" framework="" version="" source="sam0/drivers/sercom/i2c/i2c_sam0/i2c_master_interrupt.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/i2c/quick_start_master/qs_i2c_master_basic_use.h" framework="" version="" source="sam0/drivers/sercom/i2c/quick_start_master/qs_i2c_master_basic_use.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/i2c/quick_start_master_callback/qs_i2c_master_callback.h" framework="" version="" source="sam0/drivers/sercom/i2c/quick_start_master_callback/qs_i2c_master_callback.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/i2c/quick_start_master_dma/qs_i2c_master_dma.h" framework="" version="" source="sam0/drivers/sercom/i2c/quick_start_master_dma/qs_i2c_master_dma.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/sercom.c" framework="" version="" source="sam0/drivers/sercom/sercom.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/sercom.h" framework="" version="" source="sam0/drivers/sercom/sercom.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/sercom_interrupt.c" framework="" version="" source="sam0/drivers/sercom/sercom_interrupt.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/sercom_interrupt.h" framework="" version="" source="sam0/drivers/sercom/sercom_interrupt.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/sercom_pinout.h" framework="" version="" source="sam0/drivers/sercom/sercom_pinout.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/spi/quick_start_dma/qs_spi_dma_use.h" framework="" version="" source="sam0/drivers/sercom/spi/quick_start_dma/qs_spi_dma_use.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/spi/quick_start_master/qs_spi_master_basic.h" framework="" version="" source="sam0/drivers/sercom/spi/quick_start_master/qs_spi_master_basic.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/spi/quick_start_slave/qs_spi_slave_basic.h" framework="" version="" source="sam0/drivers/sercom/spi/quick_start_slave/qs_spi_slave_basic.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/spi/spi.c" framework="" version="" source="sam0/drivers/sercom/spi/spi.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/spi/spi.h" framework="" version="" source="sam0/drivers/sercom/spi/spi.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/usart/quick_start/qs_usart_basic_use.h" framework="" version="" source="sam0/drivers/sercom/usart/quick_start/qs_usart_basic_use.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/usart/quick_start_callback/qs_usart_callback.h" framework="" version="" source="sam0/drivers/sercom/usart/quick_start_callback/qs_usart_callback.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/usart/quick_start_dma/qs_usart_dma_use.h" framework="" version="" source="sam0/drivers/sercom/usart/quick_start_dma/qs_usart_dma_use.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/usart/quick_start_lin/qs_lin.h" framework="" version="" source="sam0/drivers/sercom/usart/quick_start_lin/qs_lin.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/usart/usart.c" framework="" version="" source="sam0/drivers/sercom/usart/usart.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/usart/usart.h" framework="" version="" source="sam0/drivers/sercom/usart/usart.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/usart/usart_interrupt.c" framework="" version="" source="sam0/drivers/sercom/usart/usart_interrupt.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/sercom/usart/usart_interrupt.h" framework="" version="" source="sam0/drivers/sercom/usart/usart_interrupt.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/clock/clock.h" framework="" version="" source="sam0/drivers/system/clock/clock.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/clock/clock_samr34/clock.c" framework="" version="" source="sam0/drivers/system/clock/clock_samr34/clock.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/clock/clock_samr34/clock_config_check.h" framework="" version="" source="sam0/drivers/system/clock/clock_samr34/clock_config_check.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/clock/clock_samr34/clock_feature.h" framework="" version="" source="sam0/drivers/system/clock/clock_samr34/clock_feature.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/clock/clock_samr34/gclk.c" framework="" version="" source="sam0/drivers/system/clock/clock_samr34/gclk.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/clock/gclk.h" framework="" version="" source="sam0/drivers/system/clock/gclk.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/interrupt/system_interrupt.c" framework="" version="" source="sam0/drivers/system/interrupt/system_interrupt.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/interrupt/system_interrupt.h" framework="" version="" source="sam0/drivers/system/interrupt/system_interrupt.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34/system_interrupt_features.h" framework="" version="" source="sam0/drivers/system/interrupt/system_interrupt_samr34/system_interrupt_features.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/pinmux/pinmux.c" framework="" version="" source="sam0/drivers/system/pinmux/pinmux.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/pinmux/pinmux.h" framework="" version="" source="sam0/drivers/system/pinmux/pinmux.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/pinmux/quick_start/qs_pinmux_basic.h" framework="" version="" source="sam0/drivers/system/pinmux/quick_start/qs_pinmux_basic.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/power/power_sam_l/power.h" framework="" version="" source="sam0/drivers/system/power/power_sam_l/power.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/reset/reset_sam_l/reset.h" framework="" version="" source="sam0/drivers/system/reset/reset_sam_l/reset.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/system.c" framework="" version="" source="sam0/drivers/system/system.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/system/system.h" framework="" version="" source="sam0/drivers/system/system.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/tc/tc.h" framework="" version="" source="sam0/drivers/tc/tc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/tc/tc_interrupt.c" framework="" version="" source="sam0/drivers/tc/tc_interrupt.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/tc/tc_interrupt.h" framework="" version="" source="sam0/drivers/tc/tc_interrupt.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/drivers/tc/tc_sam_l_c/tc.c" framework="" version="" source="sam0/drivers/tc/tc_sam_l_c/tc.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/ac.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/ac.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/adc.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/adc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/aes.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/aes.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/ccl.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/ccl.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/dac.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/dac.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/dmac.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/dmac.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/dsu.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/dsu.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/eic.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/eic.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/evsys.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/evsys.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/gclk.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/gclk.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/mclk.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/mclk.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/mtb.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/mtb.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/nvmctrl.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/nvmctrl.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/osc32kctrl.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/osc32kctrl.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/oscctrl.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/oscctrl.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/pac.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/pac.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/pm.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/pm.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/port.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/port.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/rstc.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/rstc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/rtc.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/rtc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/sercom.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/sercom.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/supc.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/supc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/tal.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/tal.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/tc.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/tc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/tcc.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/tcc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/trng.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/trng.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/usb.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/usb.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/component/wdt.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/component/wdt.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/ac.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/ac.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/adc.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/adc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/aes.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/aes.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/ccl.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/ccl.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/dac.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/dac.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/dmac.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/dmac.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/dsu.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/dsu.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/eic.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/eic.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/evsys.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/evsys.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/gclk.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/gclk.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/mclk.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/mclk.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/mtb.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/mtb.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/nvmctrl.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/nvmctrl.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/osc32kctrl.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/osc32kctrl.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/oscctrl.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/oscctrl.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/pac.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/pac.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/pm.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/pm.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/port.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/port.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/rstc.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/rstc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/rtc.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/rtc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom0.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/sercom0.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom1.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/sercom1.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom2.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/sercom2.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom3.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/sercom3.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom4.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/sercom4.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom5.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/sercom5.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/supc.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/supc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tal.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/tal.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tc0.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/tc0.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tc1.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/tc1.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tc2.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/tc2.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tc3.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/tc3.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tc4.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/tc4.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tcc0.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/tcc0.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tcc1.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/tcc1.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tcc2.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/tcc2.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/trng.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/trng.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/usb.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/usb.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/wdt.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/instance/wdt.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/pio/samr34j16b.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/pio/samr34j16b.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/pio/samr34j17b.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/pio/samr34j17b.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/pio/samr34j18b.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/pio/samr34j18b.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/samr34.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/samr34.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/samr34j16b.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/samr34j16b.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/samr34j17b.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/samr34j17b.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/include/samr34j18b.h" framework="" version="" source="sam0/utils/cmsis/samr34/include/samr34j18b.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/source/gcc/startup_samr34.c" framework="" version="" source="sam0/utils/cmsis/samr34/source/gcc/startup_samr34.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/source/system_samr34.c" framework="" version="" source="sam0/utils/cmsis/samr34/source/system_samr34.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/cmsis/samr34/source/system_samr34.h" framework="" version="" source="sam0/utils/cmsis/samr34/source/system_samr34.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/compiler.h" framework="" version="" source="sam0/utils/compiler.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/header_files/io.h" framework="" version="" source="sam0/utils/header_files/io.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/linker_scripts/samr34/gcc/samr34j18b_flash.ld" framework="" version="" source="sam0/utils/linker_scripts/samr34/gcc/samr34j18b_flash.ld" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/make/Makefile.sam.in" framework="" version="" source="sam0/utils/make/Makefile.sam.in" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/preprocessor/mrecursion.h" framework="" version="" source="sam0/utils/preprocessor/mrecursion.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/preprocessor/mrepeat.h" framework="" version="" source="sam0/utils/preprocessor/mrepeat.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/preprocessor/preprocessor.h" framework="" version="" source="sam0/utils/preprocessor/preprocessor.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/preprocessor/stringz.h" framework="" version="" source="sam0/utils/preprocessor/stringz.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/preprocessor/tpaste.h" framework="" version="" source="sam0/utils/preprocessor/tpaste.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/status_codes.h" framework="" version="" source="sam0/utils/status_codes.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/stdio/read.c" framework="" version="" source="sam0/utils/stdio/read.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/stdio/stdio_serial/stdio_serial.h" framework="" version="" source="sam0/utils/stdio/stdio_serial/stdio_serial.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/stdio/write.c" framework="" version="" source="sam0/utils/stdio/write.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam0/utils/syscalls/gcc/syscalls.c" framework="" version="" source="sam0/utils/syscalls/gcc/syscalls.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/ATMEL-disclaimer.txt" framework="" version="" source="thirdparty/CMSIS/ATMEL-disclaimer.txt" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/CMSIS_END_USER_LICENCE_AGREEMENT.pdf" framework="" version="" source="thirdparty/CMSIS/CMSIS_END_USER_LICENCE_AGREEMENT.pdf" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/Include/arm_math.h" framework="" version="" source="thirdparty/CMSIS/Include/arm_math.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/Include/cmsis_compiler.h" framework="" version="" source="thirdparty/CMSIS/Include/cmsis_compiler.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/Include/cmsis_gcc.h" framework="" version="" source="thirdparty/CMSIS/Include/cmsis_gcc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/Include/cmsis_version.h" framework="" version="" source="thirdparty/CMSIS/Include/cmsis_version.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/Include/core_cm0plus.h" framework="" version="" source="thirdparty/CMSIS/Include/core_cm0plus.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/Include/mpu_armv7.h" framework="" version="" source="thirdparty/CMSIS/Include/mpu_armv7.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/Lib/GCC/libarm_cortexM0l_math.a" framework="" version="" source="thirdparty/CMSIS/Lib/GCC/libarm_cortexM0l_math.a" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/Lib/license.txt" framework="" version="" source="thirdparty/CMSIS/Lib/license.txt" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/README.txt" framework="" version="" source="thirdparty/CMSIS/README.txt" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/CMSIS/license.txt" framework="" version="" source="thirdparty/CMSIS/license.txt" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic.c" framework="" version="" source="thirdparty/cryptolib/atca_basic.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic.h" framework="" version="" source="thirdparty/cryptolib/atca_basic.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_aes.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_aes.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_checkmac.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_checkmac.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_counter.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_counter.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_derivekey.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_derivekey.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_ecdh.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_ecdh.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_gendig.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_gendig.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_genkey.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_genkey.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_hmac.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_hmac.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_info.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_info.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_kdf.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_kdf.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_lock.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_lock.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_mac.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_mac.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_nonce.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_nonce.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_privwrite.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_privwrite.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_random.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_random.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_read.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_read.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_secureboot.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_secureboot.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_selftest.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_selftest.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_sha.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_sha.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_sign.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_sign.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_updateextra.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_updateextra.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_verify.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_verify.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_basic_write.c" framework="" version="" source="thirdparty/cryptolib/atca_basic_write.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_bool.h" framework="" version="" source="thirdparty/cryptolib/atca_bool.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_cfgs.c" framework="" version="" source="thirdparty/cryptolib/atca_cfgs.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_cfgs.h" framework="" version="" source="thirdparty/cryptolib/atca_cfgs.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_command.c" framework="" version="" source="thirdparty/cryptolib/atca_command.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_command.h" framework="" version="" source="thirdparty/cryptolib/atca_command.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_compiler.h" framework="" version="" source="thirdparty/cryptolib/atca_compiler.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_device.c" framework="" version="" source="thirdparty/cryptolib/atca_device.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_device.h" framework="" version="" source="thirdparty/cryptolib/atca_device.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_devtypes.h" framework="" version="" source="thirdparty/cryptolib/atca_devtypes.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_execution.c" framework="" version="" source="thirdparty/cryptolib/atca_execution.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_execution.h" framework="" version="" source="thirdparty/cryptolib/atca_execution.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_helpers.c" framework="" version="" source="thirdparty/cryptolib/atca_helpers.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_helpers.h" framework="" version="" source="thirdparty/cryptolib/atca_helpers.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_iface.c" framework="" version="" source="thirdparty/cryptolib/atca_iface.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_iface.h" framework="" version="" source="thirdparty/cryptolib/atca_iface.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/atca_status.h" framework="" version="" source="thirdparty/cryptolib/atca_status.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/atca_crypto_sw.h" framework="" version="" source="thirdparty/cryptolib/crypto/atca_crypto_sw.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/atca_crypto_sw_ecdsa.c" framework="" version="" source="thirdparty/cryptolib/crypto/atca_crypto_sw_ecdsa.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/atca_crypto_sw_ecdsa.h" framework="" version="" source="thirdparty/cryptolib/crypto/atca_crypto_sw_ecdsa.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/atca_crypto_sw_rand.c" framework="" version="" source="thirdparty/cryptolib/crypto/atca_crypto_sw_rand.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/atca_crypto_sw_rand.h" framework="" version="" source="thirdparty/cryptolib/crypto/atca_crypto_sw_rand.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/atca_crypto_sw_sha1.c" framework="" version="" source="thirdparty/cryptolib/crypto/atca_crypto_sw_sha1.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/atca_crypto_sw_sha1.h" framework="" version="" source="thirdparty/cryptolib/crypto/atca_crypto_sw_sha1.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/atca_crypto_sw_sha2.c" framework="" version="" source="thirdparty/cryptolib/crypto/atca_crypto_sw_sha2.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/atca_crypto_sw_sha2.h" framework="" version="" source="thirdparty/cryptolib/crypto/atca_crypto_sw_sha2.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/hashes/sha1_routines.c" framework="" version="" source="thirdparty/cryptolib/crypto/hashes/sha1_routines.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/hashes/sha1_routines.h" framework="" version="" source="thirdparty/cryptolib/crypto/hashes/sha1_routines.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/hashes/sha2_routines.c" framework="" version="" source="thirdparty/cryptolib/crypto/hashes/sha2_routines.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/crypto/hashes/sha2_routines.h" framework="" version="" source="thirdparty/cryptolib/crypto/hashes/sha2_routines.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/cryptoauthlib.h" framework="" version="" source="thirdparty/cryptolib/cryptoauthlib.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/hal/atca_hal.c" framework="" version="" source="thirdparty/cryptolib/hal/atca_hal.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/hal/atca_hal.h" framework="" version="" source="thirdparty/cryptolib/hal/atca_hal.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/hal/hal_samr34_i2c_asf.c" framework="" version="" source="thirdparty/cryptolib/hal/hal_samr34_i2c_asf.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/hal/hal_samr34_i2c_asf.h" framework="" version="" source="thirdparty/cryptolib/hal/hal_samr34_i2c_asf.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/hal/hal_samr34_timer_asf.c" framework="" version="" source="thirdparty/cryptolib/hal/hal_samr34_timer_asf.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/host/atca_host.c" framework="" version="" source="thirdparty/cryptolib/host/atca_host.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/cryptolib/host/atca_host.h" framework="" version="" source="thirdparty/cryptolib/host/atca_host.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/EULA.txt" framework="" version="" source="thirdparty/wireless/EULA.txt" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.c" framework="" version="" source="thirdparty/wireless/addons/sio2host/uart/sio2host.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.h" framework="" version="" source="thirdparty/wireless/addons/sio2host/uart/sio2host.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_certification.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/certification_src/conf_certification.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/enddevice_cert.c" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/certification_src/enddevice_cert.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/enddevice_cert.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/certification_src/enddevice_cert.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/enddevice_cpc.c" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/certification_src/enddevice_cpc.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/enddevice_cpc.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/certification_src/enddevice_cpc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/enddevice_demo.c" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/enddevice_demo.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/enddevice_demo.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/enddevice_demo.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/main.c" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/main.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_app.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_app.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_atcad.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_atcad.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_board.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_board.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_clocks.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_clocks.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_extint.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_extint.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_hw_timer.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_hw_timer.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_nvm.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_nvm.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_pmm.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_pmm.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_regparams.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_regparams.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_resource.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_resource.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_rtc.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_rtc.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_sal.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_sal.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_sio2host.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_sio2host.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_spi.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_spi.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/config/conf_sw_timer.h" framework="" version="" source="thirdparty/wireless/lorawan/apps/enddevice_demo/multiband_ecc608/samr34_xpro/conf_sw_timer.h" changed="False" content-id="Atmel.ASF" />
+          <file path="MLS_Migration_Guide.pdf" framework="" version="" source="thirdparty/wireless/lorawan/doc/MLS_Migration_Guide.pdf" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/hal/inc/atomic.h" framework="" version="" source="thirdparty/wireless/lorawan/hal/inc/atomic.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/hal/inc/radio_driver_hal.h" framework="" version="" source="thirdparty/wireless/lorawan/hal/inc/radio_driver_hal.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/hal/inc/sleep.h" framework="" version="" source="thirdparty/wireless/lorawan/hal/inc/sleep.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/hal/inc/sleep_timer.h" framework="" version="" source="thirdparty/wireless/lorawan/hal/inc/sleep_timer.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/hal/inc/sys.h" framework="" version="" source="thirdparty/wireless/lorawan/hal/inc/sys.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/hal/src/radio_driver_hal.c" framework="" version="" source="thirdparty/wireless/lorawan/hal/src/radio_driver_hal.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/hal/src/sleep/sam0/sleep.c" framework="" version="" source="thirdparty/wireless/lorawan/hal/src/sleep/sam0/sleep.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/hal/src/sleep_timer/sam0/sleep_timer.c" framework="" version="" source="thirdparty/wireless/lorawan/hal/src/sleep_timer/sam0/sleep_timer.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/hal/src/sys.c" framework="" version="" source="thirdparty/wireless/lorawan/hal/src/sys.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/inc/conf_stack.h" framework="" version="" source="thirdparty/wireless/lorawan/inc/conf_stack.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/inc/stack_common.h" framework="" version="" source="thirdparty/wireless/lorawan/inc/stack_common.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/libgen/sam0/gcc/libLORAWAN_LIBGEN.a" framework="" version="" source="thirdparty/wireless/lorawan/libgen/sam0/gcc/libLORAWAN_LIBGEN.a" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/mac/inc/lorawan.h" framework="" version="" source="thirdparty/wireless/lorawan/mac/inc/lorawan.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/pmm/inc/pmm.h" framework="" version="" source="thirdparty/wireless/lorawan/pmm/inc/pmm.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/pmm/src/pmm.c" framework="" version="" source="thirdparty/wireless/lorawan/pmm/src/pmm.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/regparams/inc/lorawan_reg_params.h" framework="" version="" source="thirdparty/wireless/lorawan/regparams/inc/lorawan_reg_params.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc/lorawan_multiband.h" framework="" version="" source="thirdparty/wireless/lorawan/regparams/multiband/inc/lorawan_multiband.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_as.c" framework="" version="" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_as.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_au.c" framework="" version="" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_au.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_eu.c" framework="" version="" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_eu.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_in.c" framework="" version="" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_in.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_jp.c" framework="" version="" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_jp.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_kr.c" framework="" version="" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_kr.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_na.c" framework="" version="" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_na.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_multiband.c" framework="" version="" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_multiband.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/sal/inc/sal.h" framework="" version="" source="thirdparty/wireless/lorawan/sal/inc/sal.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/sal/src/sal.c" framework="" version="" source="thirdparty/wireless/lorawan/sal/src/sal.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/aes/inc/aes_def.h" framework="" version="" source="thirdparty/wireless/lorawan/services/aes/inc/aes_def.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/aes/inc/aes_engine.h" framework="" version="" source="thirdparty/wireless/lorawan/services/aes/inc/aes_engine.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/aes/src/hw/sam0/aes_engine.c" framework="" version="" source="thirdparty/wireless/lorawan/services/aes/src/hw/sam0/aes_engine.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/edbg_eui/edbg_eui.c" framework="" version="" source="thirdparty/wireless/lorawan/services/edbg_eui/edbg_eui.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/edbg_eui/edbg_eui.h" framework="" version="" source="thirdparty/wireless/lorawan/services/edbg_eui/edbg_eui.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/pds/inc/pds_common.h" framework="" version="" source="thirdparty/wireless/lorawan/services/pds/inc/pds_common.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/pds/inc/pds_interface.h" framework="" version="" source="thirdparty/wireless/lorawan/services/pds/inc/pds_interface.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/pds/inc/pds_nvm.h" framework="" version="" source="thirdparty/wireless/lorawan/services/pds/inc/pds_nvm.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/pds/inc/pds_task_handler.h" framework="" version="" source="thirdparty/wireless/lorawan/services/pds/inc/pds_task_handler.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/pds/inc/pds_wl.h" framework="" version="" source="thirdparty/wireless/lorawan/services/pds/inc/pds_wl.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/pds/src/pds_interface.c" framework="" version="" source="thirdparty/wireless/lorawan/services/pds/src/pds_interface.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/pds/src/pds_nvm.c" framework="" version="" source="thirdparty/wireless/lorawan/services/pds/src/pds_nvm.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/pds/src/pds_task_handler.c" framework="" version="" source="thirdparty/wireless/lorawan/services/pds/src/pds_task_handler.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/pds/src/pds_wl.c" framework="" version="" source="thirdparty/wireless/lorawan/services/pds/src/pds_wl.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/resources/inc/LED.h" framework="" version="" source="thirdparty/wireless/lorawan/services/resources/inc/LED.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/resources/inc/resources.h" framework="" version="" source="thirdparty/wireless/lorawan/services/resources/inc/resources.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/resources/inc/temp_sensor.h" framework="" version="" source="thirdparty/wireless/lorawan/services/resources/inc/temp_sensor.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/resources/src/LED.c" framework="" version="" source="thirdparty/wireless/lorawan/services/resources/src/LED.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/resources/src/resources.c" framework="" version="" source="thirdparty/wireless/lorawan/services/resources/src/resources.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/resources/src/temp_sensor.c" framework="" version="" source="thirdparty/wireless/lorawan/services/resources/src/temp_sensor.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc/sw_timer.h" framework="" version="" source="thirdparty/wireless/lorawan/services/sw_timer/inc/sw_timer.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/services/sw_timer/src/sw_timer.c" framework="" version="" source="thirdparty/wireless/lorawan/services/sw_timer/src/sw_timer.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/sys/inc/system_assert.h" framework="" version="" source="thirdparty/wireless/lorawan/sys/inc/system_assert.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/sys/inc/system_init.h" framework="" version="" source="thirdparty/wireless/lorawan/sys/inc/system_init.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/sys/inc/system_low_power.h" framework="" version="" source="thirdparty/wireless/lorawan/sys/inc/system_low_power.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/sys/inc/system_task_manager.h" framework="" version="" source="thirdparty/wireless/lorawan/sys/inc/system_task_manager.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/sys/src/system_assert.c" framework="" version="" source="thirdparty/wireless/lorawan/sys/src/system_assert.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/sys/src/system_init.c" framework="" version="" source="thirdparty/wireless/lorawan/sys/src/system_init.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/sys/src/system_low_power.c" framework="" version="" source="thirdparty/wireless/lorawan/sys/src/system_low_power.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/sys/src/system_task_manager.c" framework="" version="" source="thirdparty/wireless/lorawan/sys/src/system_task_manager.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/tal/inc/radio_get_set.h" framework="" version="" source="thirdparty/wireless/lorawan/tal/inc/radio_get_set.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/tal/inc/radio_interface.h" framework="" version="" source="thirdparty/wireless/lorawan/tal/inc/radio_interface.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/tal/inc/radio_lbt.h" framework="" version="" source="thirdparty/wireless/lorawan/tal/inc/radio_lbt.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/tal/inc/radio_task_manager.h" framework="" version="" source="thirdparty/wireless/lorawan/tal/inc/radio_task_manager.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/tal/inc/radio_transaction.h" framework="" version="" source="thirdparty/wireless/lorawan/tal/inc/radio_transaction.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc/radio_driver_SX1276.h" framework="" version="" source="thirdparty/wireless/lorawan/tal/sx1276/inc/radio_driver_SX1276.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc/radio_registers_SX1276.h" framework="" version="" source="thirdparty/wireless/lorawan/tal/sx1276/inc/radio_registers_SX1276.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/lorawan/tal/sx1276/src/radio_driver_SX1276.c" framework="" version="" source="thirdparty/wireless/lorawan/tal/sx1276/src/radio_driver_SX1276.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/services/common_hw_timer/common_hw_timer.h" framework="" version="" source="thirdparty/wireless/services/common_hw_timer/common_hw_timer.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.c" framework="" version="" source="thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.h" framework="" version="" source="thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib/libsam0_lib_hw_timer.a" framework="" version="" source="thirdparty/wireless/services/common_hw_timer/sam0/lib/libsam0_lib_hw_timer.a" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/services/nvm/common_nvm.h" framework="" version="" source="thirdparty/wireless/services/nvm/common_nvm.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/thirdparty/wireless/services/nvm/sam0/sam_nvm.c" framework="" version="" source="thirdparty/wireless/services/nvm/sam0/sam_nvm.c" changed="False" content-id="Atmel.ASF" />
+        </files>
+        <documentation help="https://asf.microchip.com/docs/3.49.0/thirdparty.wireless.lorawan.apps.enddevice_demo.multiband_ecc608.samr34_xpro/html/index.html" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.49.0" />
+        </dependencies>
+        <project id="thirdparty.wireless.lorawan.apps.enddevice_demo.multiband_ecc608.samr34_xpro" value="Add" config="" content-id="Atmel.ASF" />
+        <board id="board.samr34_xplained_pro" value="Add" config="" content-id="Atmel.ASF" />
+      </framework-data>
+    </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
+    <avrtoolserialnumber>ATML3167051800002973</avrtoolserialnumber>
+    <avrdeviceexpectedsignature>0x10810228</avrdeviceexpectedsignature>
+    <avrtoolinterface>SWD</avrtoolinterface>
+    <com_atmel_avrdbg_tool_edbg>
+      <ToolOptions>
+        <InterfaceProperties>
+          <SwdClock>2000000</SwdClock>
+        </InterfaceProperties>
+        <InterfaceName>SWD</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.edbg</ToolType>
+      <ToolNumber>ATML3167051800002973</ToolNumber>
+      <ToolName>EDBG</ToolName>
+    </com_atmel_avrdbg_tool_edbg>
+    <avrtoolinterfaceclock>2000000</avrtoolinterfaceclock>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <ArmGcc>
+  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+  <armgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>CRYPTO_DEV_ENABLED</Value>
+      <Value>RTC_COUNT_ASYNC=true</Value>
+      <Value>EU_BAND=1</Value>
+      <Value>SYSTICK_MODE</Value>
+      <Value>ADC_CALLBACK_MODE=true</Value>
+      <Value>NA_BAND=1</Value>
+      <Value>ENABLE_PDS=1</Value>
+      <Value>TC_ASYNC=true</Value>
+      <Value>_DEBUG_=0</Value>
+      <Value>AU_BAND=1</Value>
+      <Value>JPN_BAND=1</Value>
+      <Value>AS_BAND=1</Value>
+      <Value>RANDOM_NW_ACQ=1</Value>
+      <Value>EDBG_EUI_READ=0</Value>
+      <Value>__SAMR34J18B__</Value>
+      <Value>CERT_APP=1</Value>
+      <Value>CONF_PMM_ENABLE</Value>
+      <Value>I2C_MASTER_CALLBACK_MODE=true</Value>
+      <Value>SPI_CALLBACK_MODE=false</Value>
+      <Value>KR_BAND=1</Value>
+      <Value>ARM_MATH_CM0PLUS=true</Value>
+      <Value>MODULE_EUI_READ=0</Value>
+      <Value>ATCA_HAL_I2C</Value>
+      <Value>BOARD=SAMR34_XPLAINED_PRO</Value>
+      <Value>EXTINT_CALLBACK_MODE=true</Value>
+      <Value>IND_BAND=1</Value>
+      <Value>USART_CALLBACK_MODE=true</Value>
+    </ListValues>
+  </armgcc.compiler.symbols.DefSymbols>
+  <armgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+      <Value>../src/ASF/sam0/boards</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+      <Value>../src/ASF/sam0/utils</Value>
+      <Value>../src/ASF/sam0/utils/header_files</Value>
+      <Value>../src/ASF/sam0/utils/preprocessor</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam0/drivers/port</Value>
+      <Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+      <Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+      <Value>../src/ASF/common/services/serial</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+      <Value>../src/ASF/sam0/drivers/sercom</Value>
+      <Value>../src/ASF/sam0/drivers/system</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/power</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+      <Value>../src/ASF/sam0/drivers/extint</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/pds/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+      <Value>../src/ASF/sam0/drivers/nvm</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+      <Value>../src/ASF/sam0/drivers/rtc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+      <Value>../src/ASF/sam0/drivers/aes</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sal/inc</Value>
+      <Value>../src/ASF/thirdparty/cryptolib</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/hal</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/host</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/crypto</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/resources/inc</Value>
+      <Value>../src/ASF/sam0/drivers/adc</Value>
+      <Value>../src/ASF/sam0/drivers/adc/adc_sam_l_c</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/edbg_eui</Value>
+      <Value>../src/config</Value>
+    </ListValues>
+  </armgcc.compiler.directories.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
+  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+  <armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500</armgcc.compiler.miscellaneous.OtherFlags>
+  <armgcc.linker.general.UseNewlibNano>false</armgcc.linker.general.UseNewlibNano>
+  <armgcc.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libsam0_lib_hw_timer</Value>
+      <Value>libLORAWAN_LIBGEN</Value>
+      <Value>libarm_cortexM0l_math</Value>
+      <Value>libm</Value>
+    </ListValues>
+  </armgcc.linker.libraries.Libraries>
+  <armgcc.linker.libraries.LibrarySearchPaths>
+    <ListValues>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/libgen/sam0/gcc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib</Value>
+    </ListValues>
+  </armgcc.linker.libraries.LibrarySearchPaths>
+  <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+  <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam0/utils/linker_scripts/samr34/gcc/samr34j18b_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
+  <armgcc.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+      <Value>../src/ASF/sam0/boards</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+      <Value>../src/ASF/sam0/utils</Value>
+      <Value>../src/ASF/sam0/utils/header_files</Value>
+      <Value>../src/ASF/sam0/utils/preprocessor</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam0/drivers/port</Value>
+      <Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+      <Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+      <Value>../src/ASF/common/services/serial</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+      <Value>../src/ASF/sam0/drivers/sercom</Value>
+      <Value>../src/ASF/sam0/drivers/system</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/power</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+      <Value>../src/ASF/sam0/drivers/extint</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/pds/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+      <Value>../src/ASF/sam0/drivers/nvm</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+      <Value>../src/ASF/sam0/drivers/rtc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+      <Value>../src/ASF/sam0/drivers/aes</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sal/inc</Value>
+      <Value>../src/ASF/thirdparty/cryptolib</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/hal</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/host</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/crypto</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/resources/inc</Value>
+      <Value>../src/ASF/sam0/drivers/adc</Value>
+      <Value>../src/ASF/sam0/drivers/adc/adc_sam_l_c</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/edbg_eui</Value>
+      <Value>../src/config</Value>
+    </ListValues>
+  </armgcc.assembler.general.IncludePaths>
+  <armgcc.preprocessingassembler.general.AssemblerFlags>-DADC_CALLBACK_MODE=true -DARM_MATH_CM0PLUS=true -DAS_BAND=1 -DATCA_HAL_I2C -DAU_BAND=1 -DBOARD=SAMR34_XPLAINED_PRO -DCERT_APP=1 -DCONF_PMM_ENABLE -DCRYPTO_DEV_ENABLED -DEDBG_EUI_READ=0 -DENABLE_PDS=1 -DEU_BAND=1 -DEXTINT_CALLBACK_MODE=true -DI2C_MASTER_CALLBACK_MODE=true -DIND_BAND=1 -DJPN_BAND=1 -DKR_BAND=1 -DMODULE_EUI_READ=0 -DNA_BAND=1 -DRANDOM_NW_ACQ=1 -DRTC_COUNT_ASYNC=true -DSPI_CALLBACK_MODE=false -DSYSTICK_MODE -DTC_ASYNC=true -DUSART_CALLBACK_MODE=true -D_DEBUG_=0 -D__SAMR34J18B__</armgcc.preprocessingassembler.general.AssemblerFlags>
+  <armgcc.preprocessingassembler.general.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+      <Value>../src/ASF/sam0/boards</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+      <Value>../src/ASF/sam0/utils</Value>
+      <Value>../src/ASF/sam0/utils/header_files</Value>
+      <Value>../src/ASF/sam0/utils/preprocessor</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam0/drivers/port</Value>
+      <Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+      <Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+      <Value>../src/ASF/common/services/serial</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+      <Value>../src/ASF/sam0/drivers/sercom</Value>
+      <Value>../src/ASF/sam0/drivers/system</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/power</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+      <Value>../src/ASF/sam0/drivers/extint</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/pds/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+      <Value>../src/ASF/sam0/drivers/nvm</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+      <Value>../src/ASF/sam0/drivers/rtc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+      <Value>../src/ASF/sam0/drivers/aes</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sal/inc</Value>
+      <Value>../src/ASF/thirdparty/cryptolib</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/hal</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/host</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/crypto</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/resources/inc</Value>
+      <Value>../src/ASF/sam0/drivers/adc</Value>
+      <Value>../src/ASF/sam0/drivers/adc/adc_sam_l_c</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/edbg_eui</Value>
+      <Value>../src/config</Value>
+    </ListValues>
+  </armgcc.preprocessingassembler.general.IncludePaths>
+</ArmGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <ArmGcc>
+  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+  <armgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>DEBUG</Value>
+      <Value>CRYPTO_DEV_ENABLED</Value>
+      <Value>RTC_COUNT_ASYNC=true</Value>
+      <Value>EU_BAND=1</Value>
+      <Value>SYSTICK_MODE</Value>
+      <Value>ADC_CALLBACK_MODE=true</Value>
+      <Value>NA_BAND=1</Value>
+      <Value>ENABLE_PDS=1</Value>
+      <Value>TC_ASYNC=true</Value>
+      <Value>_DEBUG_=0</Value>
+      <Value>AU_BAND=1</Value>
+      <Value>JPN_BAND=1</Value>
+      <Value>AS_BAND=1</Value>
+      <Value>RANDOM_NW_ACQ=1</Value>
+      <Value>CERT_APP=1</Value>
+      <Value>CONF_PMM_ENABLE</Value>
+      <Value>I2C_MASTER_CALLBACK_MODE=true</Value>
+      <Value>SPI_CALLBACK_MODE=false</Value>
+      <Value>KR_BAND=1</Value>
+      <Value>ARM_MATH_CM0PLUS=true</Value>
+      <Value>ATCA_HAL_I2C</Value>
+      <Value>EDBG_EUI_READ=1</Value>
+      <Value>MODULE_EUI_READ=0</Value>
+      <Value>BOARD=SAMR34_XPLAINED_PRO</Value>
+      <Value>__SAMR34J18B__</Value>
+      <Value>EXTINT_CALLBACK_MODE=true</Value>
+      <Value>IND_BAND=1</Value>
+      <Value>USART_CALLBACK_MODE=true</Value>
+    </ListValues>
+  </armgcc.compiler.symbols.DefSymbols>
+  <armgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+      <Value>../src/ASF/sam0/boards</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+      <Value>../src/ASF/sam0/utils</Value>
+      <Value>../src/ASF/sam0/utils/header_files</Value>
+      <Value>../src/ASF/sam0/utils/preprocessor</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam0/drivers/port</Value>
+      <Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+      <Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+      <Value>../src/ASF/common/services/serial</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+      <Value>../src/ASF/sam0/drivers/sercom</Value>
+      <Value>../src/ASF/sam0/drivers/system</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/power</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+      <Value>../src/ASF/sam0/drivers/extint</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/pds/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+      <Value>../src/ASF/sam0/drivers/nvm</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+      <Value>../src/ASF/sam0/drivers/rtc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+      <Value>../src/ASF/sam0/drivers/aes</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sal/inc</Value>
+      <Value>../src/ASF/thirdparty/cryptolib</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/hal</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/host</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/crypto</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/resources/inc</Value>
+      <Value>../src/ASF/sam0/drivers/adc</Value>
+      <Value>../src/ASF/sam0/drivers/adc/adc_sam_l_c</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/edbg_eui</Value>
+      <Value>../src/config</Value>
+      <Value>../src/parser</Value>
+      <Value>../src/parser/inc</Value>
+    </ListValues>
+  </armgcc.compiler.directories.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
+  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+  <armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500</armgcc.compiler.miscellaneous.OtherFlags>
+  <armgcc.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libsam0_lib_hw_timer</Value>
+      <Value>libLORAWAN_LIBGEN</Value>
+      <Value>libarm_cortexM0l_math</Value>
+      <Value>libm</Value>
+    </ListValues>
+  </armgcc.linker.libraries.Libraries>
+  <armgcc.linker.libraries.LibrarySearchPaths>
+    <ListValues>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/libgen/sam0/gcc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib</Value>
+    </ListValues>
+  </armgcc.linker.libraries.LibrarySearchPaths>
+  <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+  <armgcc.linker.memorysettings.ExternalRAM />
+  <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam0/utils/linker_scripts/samr34/gcc/samr34j18b_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
+  <armgcc.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+      <Value>../src/ASF/sam0/boards</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+      <Value>../src/ASF/sam0/utils</Value>
+      <Value>../src/ASF/sam0/utils/header_files</Value>
+      <Value>../src/ASF/sam0/utils/preprocessor</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam0/drivers/port</Value>
+      <Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+      <Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+      <Value>../src/ASF/common/services/serial</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+      <Value>../src/ASF/sam0/drivers/sercom</Value>
+      <Value>../src/ASF/sam0/drivers/system</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/power</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+      <Value>../src/ASF/sam0/drivers/extint</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/pds/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+      <Value>../src/ASF/sam0/drivers/nvm</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+      <Value>../src/ASF/sam0/drivers/rtc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+      <Value>../src/ASF/sam0/drivers/aes</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sal/inc</Value>
+      <Value>../src/ASF/thirdparty/cryptolib</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/hal</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/host</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/crypto</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/resources/inc</Value>
+      <Value>../src/ASF/sam0/drivers/adc</Value>
+      <Value>../src/ASF/sam0/drivers/adc/adc_sam_l_c</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/edbg_eui</Value>
+      <Value>../src/config</Value>
+    </ListValues>
+  </armgcc.assembler.general.IncludePaths>
+  <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
+  <armgcc.preprocessingassembler.general.AssemblerFlags>-DADC_CALLBACK_MODE=true -DARM_MATH_CM0PLUS=true -DAS_BAND=1 -DATCA_HAL_I2C -DAU_BAND=1 -DBOARD=SAMR34_XPLAINED_PRO -DCERT_APP=1 -DCONF_PMM_ENABLE -DCRYPTO_DEV_ENABLED -DEDBG_EUI_READ=0 -DENABLE_PDS=1 -DEU_BAND=1 -DEXTINT_CALLBACK_MODE=true -DI2C_MASTER_CALLBACK_MODE=true -DIND_BAND=1 -DJPN_BAND=1 -DKR_BAND=1 -DMODULE_EUI_READ=0 -DNA_BAND=1 -DRANDOM_NW_ACQ=1 -DRTC_COUNT_ASYNC=true -DSPI_CALLBACK_MODE=false -DSYSTICK_MODE -DTC_ASYNC=true -DUSART_CALLBACK_MODE=true -D_DEBUG_=0 -D__SAMR34J18B__</armgcc.preprocessingassembler.general.AssemblerFlags>
+  <armgcc.preprocessingassembler.general.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+      <Value>../src/ASF/sam0/boards</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+      <Value>../src/ASF/sam0/utils</Value>
+      <Value>../src/ASF/sam0/utils/header_files</Value>
+      <Value>../src/ASF/sam0/utils/preprocessor</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam0/drivers/port</Value>
+      <Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+      <Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+      <Value>../src/ASF/common/services/serial</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+      <Value>../src/ASF/sam0/drivers/sercom</Value>
+      <Value>../src/ASF/sam0/drivers/system</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/clock</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+      <Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+      <Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/power</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+      <Value>../src/ASF/sam0/drivers/system/reset</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+      <Value>../src/ASF/common2/services/delay</Value>
+      <Value>../src/ASF/common2/services/delay/sam0</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+      <Value>../src/ASF/sam0/drivers/extint</Value>
+      <Value>../src/ASF/sam0/drivers/tc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/pds/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+      <Value>../src/ASF/sam0/drivers/nvm</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+      <Value>../src/ASF/sam0/drivers/rtc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+      <Value>../src/ASF/sam0/drivers/aes</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sal/inc</Value>
+      <Value>../src/ASF/thirdparty/cryptolib</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/hal</Value>
+      <Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/host</Value>
+      <Value>../src/ASF/thirdparty/cryptolib/crypto</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/resources/inc</Value>
+      <Value>../src/ASF/sam0/drivers/adc</Value>
+      <Value>../src/ASF/sam0/drivers/adc/adc_sam_l_c</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/services/edbg_eui</Value>
+      <Value>../src/config</Value>
+    </ListValues>
+  </armgcc.preprocessingassembler.general.IncludePaths>
+  <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
+</ArmGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\ASF\" />
+    <Folder Include="src\ASF\common2\" />
+    <Folder Include="src\ASF\common2\services\" />
+    <Folder Include="src\ASF\common2\services\delay\" />
+    <Folder Include="src\ASF\common2\services\delay\sam0\" />
+    <Folder Include="src\ASF\common\" />
+    <Folder Include="src\ASF\common\boards\" />
+    <Folder Include="src\ASF\common\services\" />
+    <Folder Include="src\ASF\common\services\serial\" />
+    <Folder Include="src\ASF\common\services\serial\sam0_usart\" />
+    <Folder Include="src\ASF\common\utils\" />
+    <Folder Include="src\ASF\common\utils\interrupt\" />
+    <Folder Include="src\ASF\sam0\" />
+    <Folder Include="src\ASF\sam0\boards\" />
+    <Folder Include="src\ASF\sam0\boards\samr34_xplained_pro\" />
+    <Folder Include="src\ASF\sam0\drivers\" />
+    <Folder Include="src\ASF\sam0\drivers\adc\" />
+    <Folder Include="src\ASF\sam0\drivers\adc\adc_sam_l_c\" />
+    <Folder Include="src\ASF\sam0\drivers\aes\" />
+    <Folder Include="src\ASF\sam0\drivers\extint\" />
+    <Folder Include="src\ASF\sam0\drivers\extint\extint_sam_l_c\" />
+    <Folder Include="src\ASF\sam0\drivers\nvm\" />
+    <Folder Include="src\ASF\sam0\drivers\nvm\quick_start_basic\" />
+    <Folder Include="src\ASF\sam0\drivers\port\" />
+    <Folder Include="src\ASF\sam0\drivers\port\quick_start\" />
+    <Folder Include="src\ASF\sam0\drivers\rtc\" />
+    <Folder Include="src\ASF\sam0\drivers\rtc\rtc_sam_l_c\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\i2c\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\i2c\i2c_sam0\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\i2c\quick_start_master\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\i2c\quick_start_master_callback\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\i2c\quick_start_master_dma\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\spi\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\spi\quick_start_dma\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\spi\quick_start_master\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\spi\quick_start_slave\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\usart\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\usart\quick_start\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\usart\quick_start_callback\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\usart\quick_start_dma\" />
+    <Folder Include="src\ASF\sam0\drivers\sercom\usart\quick_start_lin\" />
+    <Folder Include="src\ASF\sam0\drivers\system\" />
+    <Folder Include="src\ASF\sam0\drivers\system\clock\" />
+    <Folder Include="src\ASF\sam0\drivers\system\clock\clock_samr34\" />
+    <Folder Include="src\ASF\sam0\drivers\system\interrupt\" />
+    <Folder Include="src\ASF\sam0\drivers\system\interrupt\system_interrupt_samr34\" />
+    <Folder Include="src\ASF\sam0\drivers\system\pinmux\" />
+    <Folder Include="src\ASF\sam0\drivers\system\pinmux\quick_start\" />
+    <Folder Include="src\ASF\sam0\drivers\system\power\" />
+    <Folder Include="src\ASF\sam0\drivers\system\power\power_sam_l\" />
+    <Folder Include="src\ASF\sam0\drivers\system\reset\" />
+    <Folder Include="src\ASF\sam0\drivers\system\reset\reset_sam_l\" />
+    <Folder Include="src\ASF\sam0\drivers\tc\" />
+    <Folder Include="src\ASF\sam0\drivers\tc\tc_sam_l_c\" />
+    <Folder Include="src\ASF\sam0\utils\" />
+    <Folder Include="src\ASF\sam0\utils\cmsis\" />
+    <Folder Include="src\ASF\sam0\utils\cmsis\samr34\" />
+    <Folder Include="src\ASF\sam0\utils\cmsis\samr34\include\" />
+    <Folder Include="src\ASF\sam0\utils\cmsis\samr34\include\component\" />
+    <Folder Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\" />
+    <Folder Include="src\ASF\sam0\utils\cmsis\samr34\include\pio\" />
+    <Folder Include="src\ASF\sam0\utils\cmsis\samr34\source\" />
+    <Folder Include="src\ASF\sam0\utils\cmsis\samr34\source\gcc\" />
+    <Folder Include="src\ASF\sam0\utils\header_files\" />
+    <Folder Include="src\ASF\sam0\utils\linker_scripts\" />
+    <Folder Include="src\ASF\sam0\utils\linker_scripts\samr34\" />
+    <Folder Include="src\ASF\sam0\utils\linker_scripts\samr34\gcc\" />
+    <Folder Include="src\ASF\sam0\utils\make\" />
+    <Folder Include="src\ASF\sam0\utils\preprocessor\" />
+    <Folder Include="src\ASF\sam0\utils\stdio\" />
+    <Folder Include="src\ASF\sam0\utils\stdio\stdio_serial\" />
+    <Folder Include="src\ASF\sam0\utils\syscalls\" />
+    <Folder Include="src\ASF\sam0\utils\syscalls\gcc\" />
+    <Folder Include="src\ASF\thirdparty\" />
+    <Folder Include="src\ASF\thirdparty\CMSIS\" />
+    <Folder Include="src\ASF\thirdparty\CMSIS\Include\" />
+    <Folder Include="src\ASF\thirdparty\CMSIS\Lib\" />
+    <Folder Include="src\ASF\thirdparty\CMSIS\Lib\GCC\" />
+    <Folder Include="src\ASF\thirdparty\cryptolib\" />
+    <Folder Include="src\ASF\thirdparty\cryptolib\crypto\" />
+    <Folder Include="src\ASF\thirdparty\cryptolib\crypto\hashes\" />
+    <Folder Include="src\ASF\thirdparty\cryptolib\hal\" />
+    <Folder Include="src\ASF\thirdparty\cryptolib\host\" />
+    <Folder Include="src\ASF\thirdparty\wireless\" />
+    <Folder Include="src\ASF\thirdparty\wireless\addons\" />
+    <Folder Include="src\ASF\thirdparty\wireless\addons\sio2host\" />
+    <Folder Include="src\ASF\thirdparty\wireless\addons\sio2host\uart\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\src\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep\sam0\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep_timer\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep_timer\sam0\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\libgen\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\libgen\sam0\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\libgen\sam0\gcc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\mac\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\mac\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\pmm\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\pmm\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\pmm\src\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\regparams\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\regparams\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\sal\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\sal\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\sal\src\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\aes\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\aes\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\aes\src\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\aes\src\hw\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\aes\src\hw\sam0\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\edbg_eui\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\pds\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\pds\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\pds\src\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\resources\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\resources\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\resources\src\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\sw_timer\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\sw_timer\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\services\sw_timer\src\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\sys\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\sys\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\sys\src\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\tal\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\inc\" />
+    <Folder Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\src\" />
+    <Folder Include="src\ASF\thirdparty\wireless\services\" />
+    <Folder Include="src\ASF\thirdparty\wireless\services\common_hw_timer\" />
+    <Folder Include="src\ASF\thirdparty\wireless\services\common_hw_timer\sam0\" />
+    <Folder Include="src\ASF\thirdparty\wireless\services\common_hw_timer\sam0\lib\" />
+    <Folder Include="src\ASF\thirdparty\wireless\services\nvm\" />
+    <Folder Include="src\ASF\thirdparty\wireless\services\nvm\sam0\" />
+    <Folder Include="src\config\" />
+    <Folder Include="src\parser\" />
+    <Folder Include="src\parser\inc\" />
+    <Folder Include="src\parser\src\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\parser\inc\parser.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\inc\parser_commands.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\inc\parser_lorawan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\inc\parser_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\inc\parser_system.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\inc\parser_tsp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\inc\parser_utils.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\src\parser.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\src\parser_commands.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\src\parser_lorawan.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\src\parser_system.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\src\parser_tsp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\parser\src\parser_utils.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\asf.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_extint.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_pmm.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_atcad.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_sio2host.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_clocks.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_nvm.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_resource.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_spi.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_regparams.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_rtc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_sw_timer.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_app.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_board.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_hw_timer.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_sal.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="MLS_Migration_Guide.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tcc1.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tcc0.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\tal.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tcc2.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\nvm\quick_start_basic\qs_nvm_basic.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\tc\tc_interrupt.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\port.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tc4.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\system\clock\clock.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\adc\adc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\linker_scripts\samr34\gcc\samr34j18b_flash.ld">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\make\Makefile.sam.in">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\CMSIS\ATMEL-disclaimer.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\CMSIS\CMSIS_END_USER_LICENCE_AGREEMENT.pdf">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\CMSIS\Lib\GCC\libarm_cortexM0l_math.a">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\CMSIS\Lib\license.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\CMSIS\README.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\atca_basic.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\sercom.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\system\clock\clock_samr34\clock_feature.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\system\system.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\libgen\sam0\gcc\libLORAWAN_LIBGEN.a">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\services\common_hw_timer\sam0\lib\libsam0_lib_hw_timer.a">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_certification.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\rstc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\sercom_pinout.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\crypto\atca_crypto_sw_ecdsa.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\crypto\atca_crypto_sw.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\port.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\mclk.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\sleep_timer.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\pac.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\pm.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\osc32kctrl.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\ac.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\inc\lorawan_multiband.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\i2c\i2c_master_interrupt.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\usart\usart.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\usart\usart_interrupt.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\samr34.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom4.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\usb.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\i2c\quick_start_master\qs_i2c_master_basic_use.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\serial\serial.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\atca_command.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\usart\quick_start_callback\qs_usart_callback.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\mclk.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\status_codes.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\atomic.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\spi\quick_start_master\qs_spi_master_basic.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\inc\conf_stack.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\tc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\aes\aes.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\adc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\pds\inc\pds_nvm.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom2.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\compiler.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\pds\inc\pds_wl.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom5.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\regparams\inc\lorawan_reg_params.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\CMSIS\Include\core_cm0plus.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\crypto\atca_crypto_sw_sha1.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\i2c\i2c_common.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\CMSIS\Include\cmsis_compiler.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\utils\interrupt.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\rtc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common2\services\delay\sam0\systick_counter.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\rtc\rtc_count_interrupt.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\mtb.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common2\services\delay\delay.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\common2\services\delay\sam0\systick_counter.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam0\drivers\system\reset\reset_sam_l\reset.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\radio_transaction.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\nvmctrl.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\atca_iface.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\nvm\nvm.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\sercom.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\crypto\hashes\sha1_routines.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\sys\inc\system_task_manager.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\system\interrupt\system_interrupt.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\usart\quick_start\qs_usart_basic_use.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\CMSIS\Include\arm_math.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\atca_devtypes.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\supc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\resources\inc\LED.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\adc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\preprocessor\mrepeat.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\aes.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\services\common_hw_timer\sam0\hw_timer.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\dsu.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\pac.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\atca_helpers.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\preprocessor\preprocessor.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\host\atca_host.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\resources\inc\temp_sensor.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\sw_timer\inc\sw_timer.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\dac.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\atca_status.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tal.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\sys.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\radio_driver_hal.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\crypto\atca_crypto_sw_sha2.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\i2c\i2c_master.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\extint\extint.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom3.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\inc\radio_registers_SX1276.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\preprocessor\stringz.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\boards\samr34_xplained_pro\samr34_xplained_pro.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tc0.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\oscctrl.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\ccl.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\dsu.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\CMSIS\Include\cmsis_gcc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\system\clock\clock_samr34\clock_config_check.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\CMSIS\Include\mpu_armv7.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\cryptoauthlib.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\i2c\quick_start_master_dma\qs_i2c_master_dma.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\spi\quick_start_slave\qs_spi_slave_basic.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\aes.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\atca_bool.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\header_files\io.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\stdio\stdio_serial\stdio_serial.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\pds\inc\pds_task_handler.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\mtb.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\samr34j17b.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\samr34j16b.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\utils\parts.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\dmac.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\ccl.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\samr34j18b.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\serial\sam0_usart\usart_serial.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\radio_lbt.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom0.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\osc32kctrl.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\system\pinmux\quick_start\qs_pinmux_basic.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\resources\inc\resources.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tc1.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\inc\stack_common.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\system\clock\gclk.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\usb.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\ac.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\pmm\inc\pmm.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\utils\interrupt\interrupt_sam_nvic.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\sercom_interrupt.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\rtc\rtc_tamper.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\services\nvm\common_nvm.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\inc\radio_driver_SX1276.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\atca_device.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\tcc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\rstc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\services\common_hw_timer\common_hw_timer.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\system\power\power_sam_l\power.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\edbg_eui\edbg_eui.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom1.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\wdt.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tc2.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\gclk.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\radio_task_manager.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\eic.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\gclk.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\supc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\evsys.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\atca_execution.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\source\system_samr34.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\tc\tc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\atca_compiler.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\crypto\atca_crypto_sw_rand.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\rtc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\boards\board.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\common\utils\interrupt\interrupt_sam_nvic.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\boards\samr34_xplained_pro\board_init.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\dmac.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\atca_cfgs.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\mac\inc\lorawan.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\hal\atca_hal.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\sys\inc\system_init.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\pio\samr34j18b.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\addons\sio2host\uart\sio2host.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\nvmctrl.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\pio\samr34j17b.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\pio\samr34j16b.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\wdt.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\adc\adc_callback.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\sam0\drivers\adc\adc_sam_l_c\adc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\adc\adc_sam_l_c\adc_callback.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\trng.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\trng.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\adc\adc_sam_l_c\adc_feature.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\sam0\drivers\aes\aes.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\extint\extint_callback.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam0\drivers\system\pinmux\pinmux.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\sleep.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\sal\inc\sal.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\sys\inc\system_low_power.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\radio_get_set.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\eic.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\radio_interface.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tc3.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\preprocessor\mrecursion.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\hal\hal_samr34_i2c_asf.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\CMSIS\Include\cmsis_version.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\pm.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\dac.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\extint\extint_callback.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\sam0\drivers\extint\extint_sam_l_c\extint.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\nvm\nvm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\port\port.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam0\drivers\sercom\i2c\quick_start_master_callback\qs_i2c_master_callback.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\port\quick_start\qs_port_basic.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\port\port.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\usart\quick_start_dma\qs_usart_dma_use.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\system\interrupt\system_interrupt_samr34\system_interrupt_features.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\pds\inc\pds_interface.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\spi\spi.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\cryptolib\crypto\hashes\sha2_routines.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\pds\inc\pds_common.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\sys\inc\system_assert.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\evsys.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\rtc\rtc_count.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\sam0\drivers\rtc\rtc_sam_l_c\rtc_count.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\rtc\rtc_sam_l_c\rtc_count_interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\sercom\i2c\i2c_sam0\i2c_master.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\sercom\i2c\i2c_sam0\i2c_master_interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\sercom\sercom.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\sercom\sercom_interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\aes\inc\aes_engine.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\usart\quick_start_lin\qs_lin.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\drivers\sercom\spi\quick_start_dma\qs_spi_dma_use.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\sam0\drivers\sercom\spi\spi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\sercom\usart\usart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\sercom\usart\usart_interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\system\clock\clock_samr34\clock.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\system\clock\clock_samr34\gclk.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\system\interrupt\system_interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\system\pinmux\pinmux.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\system\system.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\tc\tc_interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\drivers\tc\tc_sam_l_c\tc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam0\utils\preprocessor\tpaste.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\thirdparty\wireless\lorawan\services\aes\inc\aes_def.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\oscctrl.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\sam0\utils\cmsis\samr34\source\gcc\startup_samr34.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\utils\cmsis\samr34\source\system_samr34.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\utils\stdio\read.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\utils\stdio\write.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\sam0\utils\syscalls\gcc\syscalls.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_aes.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_checkmac.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_counter.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_derivekey.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_ecdh.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_gendig.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_genkey.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_hmac.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_info.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_kdf.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_lock.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_mac.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_nonce.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_privwrite.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_random.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_read.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_secureboot.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_selftest.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_sha.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_sign.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_updateextra.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_verify.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_basic_write.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_cfgs.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_command.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_device.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_execution.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_helpers.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\atca_iface.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\crypto\atca_crypto_sw_ecdsa.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\crypto\atca_crypto_sw_rand.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\crypto\atca_crypto_sw_sha1.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\crypto\atca_crypto_sw_sha2.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\crypto\hashes\sha1_routines.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\crypto\hashes\sha2_routines.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\hal\atca_hal.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\hal\hal_samr34_i2c_asf.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\hal\hal_samr34_timer_asf.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\cryptolib\host\atca_host.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\addons\sio2host\uart\sio2host.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\hal\src\radio_driver_hal.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep\sam0\sleep.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep_timer\sam0\sleep_timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sys.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\pmm\src\pmm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_as.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_au.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_eu.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_in.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_jp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_kr.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_na.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_multiband.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\sal\src\sal.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\services\aes\src\hw\sam0\aes_engine.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\services\edbg_eui\edbg_eui.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\services\pds\src\pds_interface.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\services\pds\src\pds_nvm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\services\pds\src\pds_task_handler.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\services\pds\src\pds_wl.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\services\resources\src\LED.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\services\resources\src\resources.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\services\resources\src\temp_sensor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\services\sw_timer\src\sw_timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\sys\src\system_assert.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\sys\src\system_init.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\sys\src\system_low_power.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\sys\src\system_task_manager.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\src\radio_driver_SX1276.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\services\common_hw_timer\sam0\hw_timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\thirdparty\wireless\services\nvm\sam0\sam_nvm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\main.c">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>

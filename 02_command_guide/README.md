@@ -38,6 +38,7 @@ System commands begin with the system keyword <`sys`> and include the categories
 | --------- | ----------- |
 | `sleep` | Puts the system in sleep for a finit number of milliseconds |
 | `reset` | Resets and restarts the device `
+| `factoryRESET` | Clears non-volatile settings and resets the device`
 | `set` | Sets specified system parameter values. |
 | `get` | Gets specified system parameter values. |
 
@@ -63,6 +64,15 @@ Response: no response
 
 Example: `sys reset`  // Resets and restarts the device
 
+### `sys factoryRESET`
+
+This command clears non-volatile memory (delete PDS settings) and resets the device.
+
+Response: no response
+
+Example: `sys factoryRESET`
+
+	
 ### System Set Commands
 
 #### `sys set customparam <value>`
@@ -83,6 +93,10 @@ Example: `sys set customparam 3235`
 | customparam | Returns the custom parameter value |
 | ver | Returns the information on hardware platform, firmware version, release date |
 | hweui | Returns the preprogrammed EUI node address |
+| cryptosn | Returns the serial number of the crypto device attached |
+| cryptodeveui | Returns the unique EUI of the crypto device attached |
+| cryptojoineui | Returns the join/app EUI of the crypto device attached |
+| cryptotkminfo | Returns the tkm info of the crypto device attached |
 
 #### `sys get customparam`
 
@@ -119,6 +133,71 @@ sys get hweui
 mac set deveui <hweui>
 
 ```
+
+#### `sys get cryptosn`
+
+Returns the serial number of the secure element connected over I2C interface.
+
+Response: 9-byte hexadecimal number representing the serial number of the external secure element.
+
+Default: `000000000000000000`\
+Example: `sys get cryptosn` // Reads the secure element serial number
+
+> `mac set cryptodevenabled on` must be issued prior to this command.
+
+```
+mac set cryptodevenabled on
+sys get cryptosn
+```
+
+#### `sys get cryptodeveui`
+
+Returns the unique device identifier as provisioned in the secure element.
+
+Response: 8-byte hexadecimal number representing the crypto EUI.
+
+Default: `0000000000000000`\
+Example: `sys get cryptodeveui`
+
+> `mac set cryptodevenabled on` must be issued prior to this command.
+
+```
+mac set cryptodevenabled on
+sys get cryptodeveui
+```
+
+#### `sys get cryptojoinveui`
+
+Returns the join/application identifier as provisioned in the secure element.
+
+Response: 8-byte hexadecimal number representing the crypto join/app EUI.
+
+Default: `0000000000000000`\
+Example: `sys get cryptojoineui`
+
+> `mac set cryptodevenabled on` must be issued prior to this command.
+
+```
+mac set cryptodevenabled on
+sys get cryptojoineui
+```
+
+#### `sys get cryptotkminfo`
+
+Returns the full tkm info of the secure element attached.
+
+Response: 10-byte hexadecimal number representing the crypto tkm info.
+
+Default: `00000000000000000000`\
+Example: `sys get cryptotkminfo`
+
+> `mac set cryptodevenabled on` must be issued prior to this command.
+
+```
+mac set cryptodevenabled on
+sys get cryptotkminfo
+```
+
 
 ## MAC Commands<a name="step4"></a>
 
@@ -1086,7 +1165,6 @@ Example: `mac get upctr`
 The list of known limitations are described below:
 
 1. `sys eraseFW` command is not implemented
-1. `sys factoryRESET` has the same effect as `sys reset` command
 1. `sys set nvm <address> <data>` command is not implemented
 1. `sys set pindig <pinname> <pinstate>` is not implemented
 1. `sys set pinmode <pinname> <pinmode>` is not implemented

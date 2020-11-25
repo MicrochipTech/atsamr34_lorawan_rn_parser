@@ -10,7 +10,8 @@
 1. [Plug In](#step3)
 1. [Link Up](#step4)
 1. [Send Data](#step5)
-1. [Standby mode](#step5)
+1. [Standby mode](#step6)
+1. [Secure Authentication](#step7)
 
 ## Hardware Setup<a name="step1"></a>
 
@@ -28,13 +29,19 @@ or
 
 ## Software Setup<a name="step2"></a>
 
-- [Atmel Studio 7.0](https://www.microchip.com/mplab/avr-support/atmel-studio-7)
+- [Microchip Studio 7.0](https://www.microchip.com/mplab/microchip-studio)
 - [TeraTerm - Terminal Emulator](https://osdn.net/projects/ttssh2/releases/)
 - Network Server with Gateway and end device registered
 - LoRaWAN Gateway connected to Network Server
 
 > Notice that Network Servers supporting LoRaWAN 1.04 will only be compatible with this sample code which use Microchip LoRaWAN Stack MLS_SDK_1_0_P_5
 (The Things Industries server supports LoRaWAN 1.0.4).
+
+> In [LoRaWAN 1.0.4 Specification](https://lora-alliance.org/resource-hub/lorawan-104-specification-package), `DevNonce` is an incrementing 16-bit value. Make sure DevNonce values are aligned between end device and network/join server to pass successfully the join procedure. `DevNonce` is incremented on each join request tentative from the end device and the value is tracked by the server. `DevNonce` is stored in Persistent Data Storage in the Microchip LoRaWAN Stack.
+
+<p align="center">
+<img src="resources/media/devnonce.png" width=320>
+</p>
 
 ## Plug In<a name="step3"></a>
 
@@ -116,6 +123,58 @@ sleep_ok 59991 ms
 <img src="resources/media/sys_sleep_standby_wlr089u0.png" width=720>
 </p>
 
+## Secure Authentication<a name="step7"></a>
+
+To enable secure LoRaWAN Authentication, check out the links below for guidance on Hardware Setup and instructions to claim and activate end device to the Join Server:
+- [Adding ATECC608-TNGLORA (TTI) Secure Element to SAM R34 IC and WLR089U0 Module](https://github.com/MicrochipTech/atsamr34_ecc608a_tti)
+- [Adding ATECC608-TNGACT (Actility) Secure Element to SAM R34 IC and WLR089U0 Module](https://github.com/MicrochipTech/atsamr34_ecc608a_actility)
+
+
+1. Initialize the LoRaWAN stack
+```sh
+mac reset 868
+ok
+```
+2. Enable crypto device
+```sh
+mac set cryptodevenabled on
+ok
+```
+3. Print crypto device info
+```sh
+// print crypto serial number
+sys get cryptodevsn
+01236e0a6ded6e6827
+
+// print crypto dev eui
+sys get cryptodeveui
+0004A310001FFA2B
+
+// print crypto join eui
+sys get cryptojoineui
+70b3d57ed0000000
+
+// print crypto tkm info (used for Actility)
+sys get cryptotkminfo
+aa2301236e0a6ded6e68
+```
+4. Join the network
+```sh
+mac join otaa
+ok
+accepted
+```
+5. Transmit unconfirmed message on port 1
+```
+mac tx uncnf 1 AABBCCDDEEFF
+ok
+mac_tx_ok
+```
+
+> Secure element is loaded with unique EUI-64 which is stored in `DEV_EUI_SLOT` memory.
+By default in the code, `DEV_EUI_SLOT` is used as deveui key. If required this settings can be changed in `conf_sal.h`.
+
+`#define SERIAL_NUM_AS_DEV_EUI    0 // Value is 1 if ECC608 Serial number is used as DEV_EUI otherwise DEV_EUI will be read from DEV_EUI_SLOT`
 
 <a href="#top">Back to top</a>
 
