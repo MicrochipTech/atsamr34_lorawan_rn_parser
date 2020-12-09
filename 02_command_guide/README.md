@@ -267,8 +267,12 @@ application payload length corresponding to the current data rate
 Response after the first uplink transmission attempt:
 * `mac_tx_ok` if uplink transmission was successful and no downlink data was received back from the server
 * `mac_rx <portno> <data>` if transmission was successful, `<portno>`: port number, from 1 to 223; `<data>`: hexadecimal value that was received from the server
-* `mac_err` if transmission was unsuccessful, ACK not received back from the server
+* `no_ack` if ACK not received back from the server
+* `mic_error` if invalid downlink was received from the server
 * `invalid_data_len` if application payload length is greater than the maximum application payload length corresponding to the current data rate. This can occur after an earlier uplink attempt if retransmission back-off has reduced the data rate.
+* `fram_counter_err_rejoin_needed` if uplink counter or downlink counter have reached the max value.
+
+> Checkout `ParserAppData()` function located into `parser/parser_lorawan.c` to retrieve all the possible responses from the stack.
 
 A confirmed message will expect an acknowledgment from the server; otherwise, the message will be retransmitted by the number indicated by the command `mac set retx <value>`, whereas an unconfirmed message will not expect any acknowledgment back from the server. For further details, refer to the LoRaWAN™ Specification V1.0.4.
 
@@ -283,7 +287,7 @@ be (prerequisites: free LoRaWAN channels available and automatic reply enabled):
 * The module sends a packet on port 4 with application payload 0xAB
 * Radio transmission is successful and the device will display the first response: `ok`
 * The server needs to send two separate downlink confirmed packets back on port 1 with the following data: `0xAC`, then `0xAF`. First it will transmit the first one (`0xAC`)
-and will set the Frame Pending bit. The device will display the second response `mac_rx 1 AC`\
+and will set the Frame Pending bit. The device will display the second response `mac_rx 1 AC`
 * The device will initiate an automatic uplink unconfirmed transmission with no application payload on the first free channel because the Frame Pending bit was set in the downlink transmission
 * The server will send back the second confirmed packet (0xAF). The device will display a third response `mac_rx 1 AF`
 * The device will initiate an automatic unconfirmed transmission with no application payload on the first free channel because the last downlink transmission was confirmed, so the server needs an ACK
