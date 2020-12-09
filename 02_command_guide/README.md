@@ -366,6 +366,17 @@ Example: `mac resume` // Resumes the Microchip LoRaWAN stack functionality
 
 > This command MUST be called AFTER all radio commands have been issued and all the corresponding asynchronous messages have been replied.
 
+### `mac testmodeenabled <status>`
+
+`<status>`: string value representing the state, either `on` or `off`
+
+Response: `ok` if parameter is valid\
+Response: `invalid_param` if parameter is not valid
+
+This command configures the stack in "Test mode" and enables/disables the regulations features: duty cycle and join backoff.
+
+Example: `mac set testmodeenabled on`
+
 ### MAC Set Commands
 
 | Parameter | Description |
