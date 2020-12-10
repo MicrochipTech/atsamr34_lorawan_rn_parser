@@ -524,6 +524,8 @@
       <Value>../src/ASF/sam0/drivers/adc/adc_sam_l_c</Value>
       <Value>../src/ASF/thirdparty/wireless/lorawan/services/edbg_eui</Value>
       <Value>../src/config</Value>
+      <Value>../src/parser</Value>
+      <Value>../src/parser/inc</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
