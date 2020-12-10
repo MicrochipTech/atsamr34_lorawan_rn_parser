@@ -444,7 +444,7 @@
       <Value>JPN_BAND=1</Value>
       <Value>AS_BAND=1</Value>
       <Value>RANDOM_NW_ACQ=1</Value>
-      <Value>EDBG_EUI_READ=0</Value>
+      <Value>EDBG_EUI_READ=1</Value>
       <Value>__SAMR34J18B__</Value>
       <Value>CERT_APP=1</Value>
       <Value>CONF_PMM_ENABLE</Value>
