@@ -73,7 +73,7 @@ void System_GetExternalEui(uint8_t *id)
 		*id = EDBGDevEUI[i] ;
 		id++ ;
 	}
-#elif (BOARD == WLR089_XPLAINED_PRO && defined(__WLR089U0__) && MODULE_EUI_READ == 1)
+#elif (defined(__WLR089U0__) && MODULE_EUI_READ == 1)
 
 	#define NVM_UID_ADDRESS   ((volatile uint16_t *)(0x0080400AU))
 	uint8_t i = 0, j = 0 ;

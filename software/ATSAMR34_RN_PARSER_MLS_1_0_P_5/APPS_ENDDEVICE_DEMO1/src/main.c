@@ -126,8 +126,10 @@ int main(void)
 	HAL_RadioInit();
 	// Initialize AES only (crypto is on-demand)
 	SAL_Init(false) ;
+#if (BOARD == SAMR34_XPLAINED_PRO && defined(__SAMR34J18B__) && EDBG_EUI_READ == 1)
 	// Read edbg eui only once and store in ram
-	edbg_eui_read() ;	
+	edbg_eui_read() ;
+#endif
 	// Initialize Timers
 	SystemTimerInit();
 #ifdef CONF_PMM_ENABLE
