@@ -17,8 +17,8 @@
 
 | Device       | RF Transceiver | Supported Evaluation Kit | Supported IDEs   |
 | ------------ | -------------- | ------------------------ | ---------------- |
-| SAMR34J18B   | SX1276 (in SIP)| SAMR34 XPRO              | Atmel Studio v7.0|
-| WLR089U0     | SX1276 (in SIP)| WLR089U0 Module XPRO     | Atmel Studio v7.0|
+| SAMR34J18B   | SX1276 (in SIP)| SAMR34 XPRO              | Microchip Studio v7.0|
+| WLR089U0     | SX1276 (in SIP)| WLR089U0 Module XPRO     | Microchip Studio v7.0|
 
 - Development Board:
   - [SAM R34 Xplained Pro](https://www.microchip.com/DevelopmentTools/ProductDetails/dm320111)\

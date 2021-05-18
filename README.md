@@ -35,7 +35,7 @@ Control SAM R34 IC or WLR089U0 Module with ASCII commands over UART.
 - [SAMR34 Xplained Pro Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/dm320111)
 - [WLR089U0 Module page](https://www.microchip.com/wwwproducts/en/WLR089U0)
 - [WLR089U0 Module Xplained Pro Evaluation Kit](https://www.microchip.com/EV23M25A)
-- [Atmel Studio 7.0 IDE](https://www.microchip.com/mplab/avr-support/atmel-studio-7)
+- [Microchip Studio 7.0 IDE](https://www.microchip.com/mplab/microchip-studio)
 
 ## Sample Applications
 
