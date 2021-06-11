@@ -1,4 +1,6 @@
 # ATSAMR34_LORAWAN_RN_PARSER
+<img src="resources/media/IoT-Made-Easy-Logo.png" width=100>
+
 > "Wireless Made Easy!" - Control SAM R34 IC or WLR089U0 Module with ASCII commands over UART
 
 Devices: | **ATSAMR34 | WLR089U0**
