@@ -1,0 +1,6 @@
+1_0_P_5b
+Bugfix: Class C functionality is not working after reset and restoring through PDS
+		The fix saves all the parameters of the group 0 that allow Class C to continue working after a reset.
+		
+Known issue: support only 1 multicast group
+		
