@@ -366,17 +366,6 @@ Example: `mac resume` // Resumes the Microchip LoRaWAN stack functionality
 
 > This command MUST be called AFTER all radio commands have been issued and all the corresponding asynchronous messages have been replied.
 
-### `mac testmodeenabled <status>`
-
-`<status>`: string value representing the state, either `on` or `off`
-
-Response: `ok` if parameter is valid\
-Response: `invalid_param` if parameter is not valid
-
-This command configures the stack in "Test mode" and enables/disables the regulations features: duty cycle and join backoff.
-
-Example: `mac set testmodeenabled on`
-
 ### MAC Set Commands
 
 | Parameter | Description |
@@ -409,6 +398,7 @@ Example: `mac set testmodeenabled on`
 | rxdelay1 | Sets the value used for the first Receive window delay |
 | subband | Sets the status of the frequency subbands |
 | sync | Sets the synchronization word for the LoRaWAN communication |
+| testmodeenabled | Sets the test mode configuration by enabling/disabling the regulations features: duty cycle, join backoff |
 | upctr | Sets the value of the uplink frame counter that will be used for the next uplink transmission |
 
 #### `mac set adr <status>`
@@ -579,7 +569,7 @@ This command sets the end device LoRaWAN operating class. The default end device
 
 Example: `mac set edclass c`
 
-#### `mac set joinbackoffenable <status>
+#### `mac set joinbackoffenable <status>`
 
 `<status>`: string value representing the state, either `on` or `off`
 
@@ -720,7 +710,6 @@ Example: `mac set pwridx 5` // Sets the TX output power to 20 dBm on the next tr
 
 Check out the LoRaWAN regional parameters and the End-device Output Power encoding section for more details.
 
-
 #### `mac set reps <repsNb>`
 
 `<repsNb>`: decimal number representing the number of repetition for the unconfirmed uplink messages, from 0 to 255
@@ -794,6 +783,17 @@ This command sets the synchronization word for the LoRaWAN communication. The co
 configuration.
 
 Example: `mac set sync 34` // Synchronization word is configured to use the 0x34 value
+
+#### `mac set testmodeenabled <status>`
+
+`<status>`: string value representing the state, either `on` or `off`
+
+Response: `ok` if parameter is valid\
+Response: `invalid_param` if parameter is not valid
+
+This command configures the stack in "Test mode" and enables/disables the regulations features: duty cycle and join backoff.
+
+Example: `mac set testmodeenabled on`
 
 #### `mac set upctr <fCntUp>`
 

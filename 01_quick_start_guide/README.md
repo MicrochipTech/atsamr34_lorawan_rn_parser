@@ -143,7 +143,7 @@ ok
 3. Print crypto device info
 ```sh
 // print crypto serial number
-sys get cryptodevsn
+sys get cryptosn
 01236e0a6ded6e6827
 
 // print crypto dev eui
