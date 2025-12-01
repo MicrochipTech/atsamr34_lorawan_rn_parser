@@ -45,7 +45,7 @@
 #  define CONF_CLOCK_FLASH_WAIT_STATES            2
 #  define CONF_CLOCK_CPU_DIVIDER                  SYSTEM_MAIN_CLOCK_DIV_1
 #  define CONF_CLOCK_LOW_POWER_DIVIDER            SYSTEM_MAIN_CLOCK_DIV_1
-#  define CONF_CLOCK_BACKUP_DIVIDER               SYSTEM_MAIN_CLOCK_DIV_1
+#  define CONF_CLOCK_BACKUP_DIVIDER               SYSTEM_MAIN_CLOCK_DIV_16
 
 /* SYSTEM_CLOCK_SOURCE_OSC16M configuration - Internal 16MHz oscillator */
 #  define CONF_CLOCK_OSC16M_FREQ_SEL              SYSTEM_OSC16M_8M 
